@@ -1,0 +1,1209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Reagan Kesseku — Senior Data Scientist · ML/AI Engineer</title>
+<meta name="description" content="Senior Data Scientist and ML/AI Engineer with 9+ years building production analytics, ML, and GenAI systems that move enterprise KPIs. Active DoD Secret Clearance.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700;800&family=Geist+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://api.fontshare.com">
+<link href="https://api.fontshare.com/v2/css?f[]=instrument-serif@400,400i&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --bg:        #0A0A0A;
+  --bg-card:   #111111;
+  --bg-card-2: #161616;
+  --line:      #1F1F1F;
+  --line-bright:#2F2F2F;
+  --text:      #F5F5F5;
+  --text-dim:  #A1A1A1;
+  --text-mute: #6E6E6E;
+  --accent:    #FF6B35;        /* refined orange — confident, not loud */
+  --accent-2:  #4ADE80;         /* signal green — for status/dots only */
+  --accent-3:  #60A5FA;         /* link blue — secondary accent */
+  --serif:     'Instrument Serif', 'Times New Roman', serif;
+  --sans:      'Geist', system-ui, -apple-system, sans-serif;
+  --mono:      'Geist Mono', 'SF Mono', Menlo, monospace;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--sans);
+  font-size: 16px;
+  line-height: 1.6;
+  font-weight: 400;
+  font-feature-settings: "ss01", "cv11";
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  overflow-x: hidden;
+}
+
+/* ───────────────────── GRAIN OVERLAY ───────────────────── */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3'/%3E%3CfeColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.4 0'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23n)'/%3E%3C/svg%3E");
+  opacity: 0.5;
+  mix-blend-mode: overlay;
+  pointer-events: none;
+  z-index: 100;
+}
+
+/* ───────────────────── LAYOUT ───────────────────── */
+.shell {
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 0 32px;
+}
+
+/* ───────────────────── NAV ───────────────────── */
+nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  background: rgba(14,16,20,0.78);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid var(--line);
+  z-index: 50;
+  padding: 16px 0;
+}
+nav .shell {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.nav-logo {
+  font-family: var(--sans);
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.nav-logo::before {
+  content: '';
+  width: 8px;
+  height: 8px;
+  background: var(--accent);
+  border-radius: 50%;
+}
+.nav-logo span { color: var(--text-dim); font-weight: 400; }
+.nav-links {
+  display: flex;
+  gap: 28px;
+  font-family: var(--mono);
+  font-size: 12px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+.nav-links a {
+  color: var(--text-dim);
+  text-decoration: none;
+  position: relative;
+  transition: color 0.2s;
+}
+.nav-links a::before {
+  content: '';
+  position: absolute;
+  bottom: -4px; left: 0;
+  width: 0;
+  height: 1px;
+  background: var(--accent);
+  transition: width 0.3s ease;
+}
+.nav-links a:hover { color: var(--text); }
+.nav-links a:hover::before { width: 100%; }
+
+@media (max-width: 720px) {
+  .nav-links { display: none; }
+}
+
+/* ───────────────────── HERO ───────────────────── */
+.hero {
+  padding: 180px 0 120px;
+  position: relative;
+  overflow: hidden;
+}
+.hero::before {
+  content: '';
+  position: absolute;
+  top: 15%; left: -15%;
+  width: 700px; height: 700px;
+  background: radial-gradient(circle, rgba(255,107,53,0.06) 0%, transparent 65%);
+  pointer-events: none;
+}
+.hero::after {
+  content: '';
+  position: absolute;
+  bottom: -10%; right: -20%;
+  width: 800px; height: 800px;
+  background: radial-gradient(circle, rgba(96,165,250,0.04) 0%, transparent 65%);
+  pointer-events: none;
+}
+
+.hero-tag {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 24px;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  animation: fadeUp 0.7s ease-out;
+}
+.hero-tag::before {
+  content: '';
+  width: 24px;
+  height: 1px;
+  background: var(--accent);
+}
+
+h1 {
+  font-family: var(--sans);
+  font-weight: 500;
+  font-size: clamp(44px, 6.5vw, 84px);
+  line-height: 1.0;
+  letter-spacing: -0.045em;
+  margin-bottom: 32px;
+  animation: fadeUp 0.8s ease-out 0.1s both;
+}
+h1 .italic {
+  font-family: var(--serif);
+  font-style: italic;
+  font-weight: 400;
+  color: var(--accent);
+  letter-spacing: -0.02em;
+}
+h1 .underline {
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 8px;
+  text-decoration-color: var(--line-bright);
+}
+
+.hero-sub {
+  font-size: 19px;
+  line-height: 1.55;
+  color: var(--text-dim);
+  max-width: 620px;
+  margin-bottom: 48px;
+  font-weight: 400;
+  letter-spacing: -0.01em;
+  animation: fadeUp 0.8s ease-out 0.2s both;
+}
+.hero-sub strong { color: var(--text); font-weight: 500; }
+
+.hero-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 56px;
+  animation: fadeUp 0.8s ease-out 0.3s both;
+}
+.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 7px 14px;
+  border: 1px solid var(--line);
+  background: var(--bg-card);
+  border-radius: 999px;
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.04em;
+  color: var(--text-dim);
+}
+.chip .dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--accent-2);
+  box-shadow: 0 0 8px rgba(74,222,128,0.5);
+}
+.chip.alt .dot { background: var(--accent-3); box-shadow: 0 0 8px rgba(96,165,250,0.5); }
+
+.hero-cta {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+  animation: fadeUp 0.8s ease-out 0.4s both;
+}
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 22px;
+  font-family: var(--mono);
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition: all 0.25s ease;
+  border: 1px solid;
+}
+.btn-primary {
+  background: var(--accent);
+  color: var(--bg);
+  border-color: var(--accent);
+  font-weight: 600;
+}
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 32px rgba(255,107,53,0.28);
+}
+.btn-ghost {
+  background: transparent;
+  color: var(--text);
+  border-color: var(--line-bright);
+}
+.btn-ghost:hover {
+  background: var(--bg-card);
+  border-color: var(--accent);
+  color: var(--accent);
+}
+.btn-arrow {
+  transition: transform 0.25s;
+}
+.btn:hover .btn-arrow { transform: translateX(4px); }
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ───────────────────── SECTION HEADER ───────────────────── */
+section {
+  padding: 100px 0;
+  position: relative;
+}
+.sec-num {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  color: var(--text-mute);
+  margin-bottom: 16px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.sec-num::before {
+  content: '';
+  width: 32px;
+  height: 1px;
+  background: var(--text-mute);
+}
+.sec-title {
+  font-family: var(--sans);
+  font-size: clamp(32px, 4.5vw, 52px);
+  font-weight: 500;
+  line-height: 1.05;
+  letter-spacing: -0.035em;
+  margin-bottom: 64px;
+  max-width: 820px;
+}
+.sec-title em {
+  font-family: var(--serif);
+  font-style: italic;
+  font-weight: 400;
+  color: var(--accent);
+  letter-spacing: -0.02em;
+}
+
+/* ───────────────────── ABOUT ───────────────────── */
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: start;
+}
+@media (max-width: 880px) {
+  .about-grid { grid-template-columns: 1fr; gap: 48px; }
+}
+.about-bio p {
+  font-size: 17px;
+  line-height: 1.7;
+  color: var(--text-dim);
+  margin-bottom: 20px;
+}
+.about-bio p strong { color: var(--text); font-weight: 500; }
+.about-bio .lede {
+  font-family: var(--sans);
+  font-size: 22px;
+  line-height: 1.5;
+  color: var(--text);
+  margin-bottom: 28px;
+  font-weight: 500;
+  letter-spacing: -0.02em;
+}
+.about-bio .lede em {
+  font-family: var(--serif);
+  font-style: italic;
+  font-weight: 400;
+  color: var(--accent);
+  letter-spacing: -0.01em;
+}
+
+.stats {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 36px 32px;
+}
+.stat {
+  border-left: 1px solid var(--accent);
+  padding-left: 18px;
+}
+.stat-num {
+  font-family: var(--sans);
+  font-size: 52px;
+  font-weight: 600;
+  line-height: 1;
+  color: var(--accent);
+  letter-spacing: -0.045em;
+  display: block;
+  margin-bottom: 8px;
+  font-variant-numeric: tabular-nums;
+  font-feature-settings: "tnum", "ss01";
+}
+.stat-lbl {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-dim);
+  line-height: 1.4;
+}
+
+/* ───────────────────── PROJECTS ───────────────────── */
+.proj-list {
+  display: flex;
+  flex-direction: column;
+}
+.proj {
+  border-top: 1px solid var(--line);
+  padding: 40px 0;
+  display: grid;
+  grid-template-columns: 80px 1fr 200px;
+  gap: 32px;
+  align-items: start;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+}
+.proj:last-child { border-bottom: 1px solid var(--line); }
+.proj:hover {
+  padding-left: 12px;
+}
+/* hover indicator removed — repo link in meta column handles affordance */
+
+.proj-num {
+  font-family: var(--mono);
+  font-size: 13px;
+  color: var(--text-mute);
+  padding-top: 4px;
+}
+.proj-body h3 {
+  font-family: var(--sans);
+  font-weight: 500;
+  font-size: 26px;
+  line-height: 1.2;
+  letter-spacing: -0.025em;
+  margin-bottom: 12px;
+  color: var(--text);
+  transition: color 0.25s;
+}
+.proj:hover .proj-body h3 { color: var(--accent); }
+.proj-body h3 em {
+  font-family: var(--serif);
+  font-style: italic;
+  color: var(--text-dim);
+  font-weight: 400;
+  letter-spacing: -0.01em;
+}
+.proj:hover .proj-body h3 em { color: var(--accent); }
+.proj-body p {
+  font-size: 15px;
+  line-height: 1.65;
+  color: var(--text-dim);
+  margin-bottom: 16px;
+  max-width: 580px;
+}
+.proj-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+.proj-tag {
+  font-family: var(--mono);
+  font-size: 10.5px;
+  letter-spacing: 0.05em;
+  padding: 4px 9px;
+  border: 1px solid var(--line);
+  color: var(--text-dim);
+  border-radius: 3px;
+}
+.proj-meta {
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--text-mute);
+  text-align: right;
+  letter-spacing: 0.05em;
+  padding-top: 8px;
+  line-height: 1.8;
+}
+.proj-meta .meta-k { color: var(--text-mute); display: block; font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 2px; }
+.proj-meta .meta-v { color: var(--text-dim); display: block; margin-bottom: 12px; font-size: 12px; }
+.proj-meta .meta-v a { color: var(--accent); text-decoration: none; }
+.proj-meta .meta-v a:hover { color: var(--text); }
+
+@media (max-width: 820px) {
+  .proj { grid-template-columns: 1fr; gap: 12px; padding: 32px 0; }
+  .proj-meta { text-align: left; }
+}
+
+/* ───────────────────── EXPERIENCE ───────────────────── */
+.xp {
+  display: grid;
+  grid-template-columns: 220px 1fr;
+  gap: 48px;
+  padding: 28px 0;
+  border-top: 1px solid var(--line);
+}
+.xp:last-of-type { border-bottom: 1px solid var(--line); }
+.xp-when {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.05em;
+  color: var(--text-mute);
+  padding-top: 8px;
+}
+.xp-where {
+  display: block;
+  margin-top: 6px;
+  color: var(--text-dim);
+  font-size: 12px;
+}
+.xp-role {
+  font-family: var(--sans);
+  font-size: 21px;
+  font-weight: 500;
+  letter-spacing: -0.025em;
+  color: var(--text);
+  margin-bottom: 6px;
+}
+.xp-org {
+  font-family: var(--mono);
+  font-size: 12px;
+  color: var(--accent-2);
+  margin-bottom: 14px;
+  letter-spacing: 0.04em;
+}
+.xp ul {
+  list-style: none;
+}
+.xp li {
+  font-size: 14.5px;
+  line-height: 1.65;
+  color: var(--text-dim);
+  padding-left: 18px;
+  position: relative;
+  margin-bottom: 8px;
+}
+.xp li::before {
+  content: '—';
+  position: absolute;
+  left: 0;
+  color: var(--accent);
+}
+@media (max-width: 820px) {
+  .xp { grid-template-columns: 1fr; gap: 12px; }
+}
+
+/* ───────────────────── SKILLS ───────────────────── */
+.skill-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0;
+  border-top: 1px solid var(--line);
+  border-left: 1px solid var(--line);
+}
+@media (max-width: 720px) { .skill-grid { grid-template-columns: 1fr; } }
+.skill-cat {
+  padding: 32px 28px;
+  border-right: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  position: relative;
+  transition: background 0.25s;
+}
+.skill-cat:hover { background: var(--bg-card); }
+.skill-cat-num {
+  position: absolute;
+  top: 32px; right: 28px;
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--text-mute);
+}
+.skill-cat-name {
+  font-family: var(--sans);
+  font-size: 20px;
+  font-weight: 500;
+  letter-spacing: -0.025em;
+  margin-bottom: 16px;
+}
+.skill-cat-name em {
+  font-family: var(--serif);
+  font-style: italic;
+  color: var(--accent);
+  font-weight: 400;
+  letter-spacing: -0.01em;
+}
+.skill-items {
+  font-family: var(--mono);
+  font-size: 12px;
+  line-height: 2;
+  color: var(--text-dim);
+}
+.skill-items span:not(:last-child)::after {
+  content: ' · ';
+  color: var(--text-mute);
+}
+
+/* ───────────────────── EDU + RESEARCH ───────────────────── */
+.edu-grid {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 64px;
+}
+@media (max-width: 880px) { .edu-grid { grid-template-columns: 1fr; gap: 40px; } }
+
+.edu-item {
+  padding: 24px 0;
+  border-top: 1px solid var(--line);
+}
+.edu-item:last-of-type { border-bottom: 1px solid var(--line); }
+.edu-degree {
+  font-family: var(--sans);
+  font-size: 18px;
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  margin-bottom: 4px;
+}
+.edu-school {
+  font-family: var(--mono);
+  font-size: 12px;
+  color: var(--accent-2);
+  letter-spacing: 0.04em;
+  margin-bottom: 6px;
+}
+.edu-meta {
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--text-mute);
+}
+
+.research-card {
+  background: var(--bg-card);
+  border: 1px solid var(--line);
+  padding: 36px 32px;
+  margin-bottom: 32px;
+  position: relative;
+}
+.research-card::before {
+  content: '"';
+  position: absolute;
+  top: -10px;
+  left: 24px;
+  font-family: var(--serif);
+  font-size: 80px;
+  color: var(--accent);
+  line-height: 1;
+  font-style: italic;
+}
+.research-title {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 24px;
+  line-height: 1.35;
+  margin-bottom: 14px;
+  font-weight: 400;
+  padding-left: 28px;
+  letter-spacing: -0.01em;
+  color: var(--text);
+}
+.research-desc {
+  font-size: 14px;
+  color: var(--text-dim);
+  line-height: 1.6;
+  padding-left: 28px;
+}
+.cert-block h4 {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 16px;
+}
+.cert-list {
+  font-size: 14px;
+  line-height: 1.9;
+  color: var(--text-dim);
+  list-style: none;
+}
+.cert-list li {
+  padding-left: 18px;
+  position: relative;
+}
+.cert-list li::before {
+  content: '◆';
+  position: absolute;
+  left: 0;
+  color: var(--accent);
+  font-size: 9px;
+  top: 8px;
+}
+
+/* ───────────────────── CONTACT ───────────────────── */
+.contact {
+  padding: 140px 0;
+  text-align: center;
+  position: relative;
+}
+.contact-tag {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 24px;
+}
+.contact h2 {
+  font-family: var(--sans);
+  font-weight: 500;
+  font-size: clamp(38px, 5.5vw, 72px);
+  line-height: 1.0;
+  letter-spacing: -0.04em;
+  margin-bottom: 32px;
+}
+.contact h2 em {
+  font-family: var(--serif);
+  font-style: italic;
+  color: var(--accent);
+  font-weight: 400;
+  letter-spacing: -0.02em;
+}
+.contact-sub {
+  font-size: 18px;
+  color: var(--text-dim);
+  max-width: 560px;
+  margin: 0 auto 48px;
+  line-height: 1.6;
+}
+.contact-links {
+  display: flex;
+  justify-content: center;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+.contact-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 16px 28px;
+  font-family: var(--mono);
+  font-size: 13px;
+  letter-spacing: 0.05em;
+  color: var(--text);
+  text-decoration: none;
+  border: 1px solid var(--line-bright);
+  transition: all 0.25s;
+}
+.contact-link:hover {
+  background: var(--bg-card);
+  border-color: var(--accent);
+  color: var(--accent);
+  transform: translateY(-2px);
+}
+
+/* ───────────────────── FOOTER ───────────────────── */
+footer {
+  padding: 48px 0 40px;
+  border-top: 1px solid var(--line);
+}
+footer .shell {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+footer p {
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--text-mute);
+  letter-spacing: 0.04em;
+}
+footer .signature {
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--text-dim);
+  letter-spacing: 0.04em;
+}
+
+/* ───────────────────── SCROLL REVEAL ───────────────────── */
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+</style>
+</head>
+<body>
+
+<!-- ═══════════ NAV ═══════════ -->
+<nav>
+  <div class="shell">
+    <div class="nav-logo">Reagan Kesseku</div>
+    <div class="nav-links">
+      <a href="#about">About</a>
+      <a href="#work">Work</a>
+      <a href="#experience">Experience</a>
+      <a href="#skills">Skills</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </div>
+</nav>
+
+<!-- ═══════════ HERO ═══════════ -->
+<header class="hero">
+  <div class="shell">
+    <div class="hero-tag">Available for Sr. Data Science &amp; ML/AI Engineering Roles</div>
+    <h1>
+      Turning <span class="italic">data</span> into<br>
+      decisions, and <span class="italic">models</span><br>
+      into production.
+    </h1>
+    <p class="hero-sub">
+      <strong>Senior Data Scientist &amp; ML/AI Engineer</strong> with 9+ years building enterprise analytics, predictive models, and generative AI systems — from Tableau dashboards consumed by 100+ stakeholders to MLOps platforms, RAG pipelines, and MCP-based multi-agent workflows. Statistical rigor, engineering discipline, business impact.
+    </p>
+    <div class="hero-meta">
+      <span class="chip"><span class="dot"></span>DoD Secret Clearance — Active</span>
+      <span class="chip"><span class="dot"></span>Colorado Springs, CO</span>
+      <span class="chip alt"><span class="dot"></span>Open to remote &amp; hybrid</span>
+    </div>
+    <div class="hero-cta">
+      <a class="btn btn-primary" href="#work">
+        See selected work <span class="btn-arrow">→</span>
+      </a>
+      <a class="btn btn-ghost" href="#contact">
+        Get in touch <span class="btn-arrow">↗</span>
+      </a>
+    </div>
+  </div>
+</header>
+
+<!-- ═══════════ ABOUT ═══════════ -->
+<section id="about">
+  <div class="shell">
+    <div class="sec-num">01 — About</div>
+    <h2 class="sec-title">A statistician's rigor.<br>An engineer's <em>shipping cadence</em>.</h2>
+    <div class="about-grid">
+      <div class="about-bio">
+        <p class="lede">I sit at the intersection of <em>applied statistics</em>, <em>machine learning</em>, and <em>modern AI engineering</em> — translating ambiguous business problems into measurable data products, then shipping them to production.</p>
+        <p>One half of the work is classical Senior Data Scientist: building 15+ executive dashboards on Databricks and Tableau, running causal-inference and A/B-test analyses, forecasting demand, communicating findings to non-technical leadership. The other half is ML/AI engineering: shipping LLM-powered clinical agents, building MLOps platforms with MLflow + FastAPI + Kubernetes, and engineering agentic AI workflows over Model Context Protocol.</p>
+        <p>Currently at <strong>BAYADA Home Healthcare</strong>, where I own end-to-end analytics for clinical quality and operational KPIs <em>and</em> the production ML systems that automate clinical insight extraction (40% manual-review reduction). Previously: privacy-preserving ML at <strong>PNNL</strong>, readmission models at <strong>William Beaumont Army Medical Center</strong>.</p>
+        <p>What I care about: making the right method legible to the people whose decisions it informs.</p>
+      </div>
+      <div class="stats">
+        <div class="stat">
+          <span class="stat-num">9+</span>
+          <span class="stat-lbl">Years across analytics,<br>ML, and AI engineering</span>
+        </div>
+        <div class="stat">
+          <span class="stat-num">15+</span>
+          <span class="stat-lbl">Production dashboards<br>for 100+ stakeholders</span>
+        </div>
+        <div class="stat">
+          <span class="stat-num">40%</span>
+          <span class="stat-lbl">Manual review cut<br>via agentic AI</span>
+        </div>
+        <div class="stat">
+          <span class="stat-num">25%</span>
+          <span class="stat-lbl">Reduction in<br>reporting errors</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ WORK ═══════════ -->
+<section id="work">
+  <div class="shell">
+    <div class="sec-num">02 — Selected Work</div>
+    <h2 class="sec-title">Five projects I'd <em>walk you through</em> in an interview.</h2>
+
+    <div class="proj-list">
+      <div class="proj">
+        <div class="proj-num">/01</div>
+        <div class="proj-body">
+          <h3><a href="https://github.com/rkesseku/analytics-copilot" target="_blank" style="color:inherit;text-decoration:none;">Conversational Analytics Copilot <em>— Text-to-SQL + RAG</em></a></h3>
+          <p>Natural-language assistant that converts business questions into governed SQL against a Databricks warehouse, returns charts plus written commentary, and is regression-tested via an LLM-as-judge harness over a held-out query bank.</p>
+          <div class="proj-tags">
+            <span class="proj-tag">Databricks</span>
+            <span class="proj-tag">Text-to-SQL</span>
+            <span class="proj-tag">RAG</span>
+            <span class="proj-tag">LLM-as-judge</span>
+          </div>
+        </div>
+        <div class="proj-meta">
+          <span class="meta-k">type</span><span class="meta-v">GenAI · Analytics</span>
+          <span class="meta-k">stack</span><span class="meta-v">LangChain · SQL</span>
+          <span class="meta-k">repo</span><span class="meta-v"><a href="https://github.com/rkesseku" target="_blank" style="color:var(--accent-2);text-decoration:none;">↗ GitHub</a></span>
+        </div>
+      </div>
+
+      <div class="proj">
+        <div class="proj-num">/02</div>
+        <div class="proj-body">
+          <h3><a href="https://github.com/rkesseku/llm-eval-harness" target="_blank" style="color:inherit;text-decoration:none;">LLM Evaluation &amp; Guardrails <em>— Reusable Harness</em></a></h3>
+          <p>Production evaluation framework covering correctness (LLM-as-judge + rubric scoring), groundedness against retrieved context, safety / PII filters, and latency / cost regression tests — CI-integrated so every prompt or model change runs the full suite before promotion.</p>
+          <div class="proj-tags">
+            <span class="proj-tag">Evals</span>
+            <span class="proj-tag">CI/CD</span>
+            <span class="proj-tag">Guardrails</span>
+            <span class="proj-tag">PII filtering</span>
+          </div>
+        </div>
+        <div class="proj-meta">
+          <span class="meta-k">type</span><span class="meta-v">LLM Infra</span>
+          <span class="meta-k">stack</span><span class="meta-v">Python · GH Actions</span>
+          <span class="meta-k">repo</span><span class="meta-v"><a href="https://github.com/rkesseku" target="_blank" style="color:var(--accent-2);text-decoration:none;">↗ GitHub</a></span>
+        </div>
+      </div>
+
+      <div class="proj">
+        <div class="proj-num">/03</div>
+        <div class="proj-body">
+          <h3><a href="https://github.com/rkesseku/mlops-churn" target="_blank" style="color:inherit;text-decoration:none;">End-to-End MLOps Platform <em>— Churn + Drift Monitoring</em></a></h3>
+          <p>Spark-based feature engineering, XGBoost training with Optuna tuning, MLflow registry, FastAPI serving in Docker, Kubernetes deployment, and Grafana / Prometheus monitoring with automated drift-triggered retraining. The whole MLOps lifecycle in one walkthrough.</p>
+          <div class="proj-tags">
+            <span class="proj-tag">MLflow</span>
+            <span class="proj-tag">FastAPI</span>
+            <span class="proj-tag">Kubernetes</span>
+            <span class="proj-tag">Drift monitoring</span>
+            <span class="proj-tag">XGBoost</span>
+          </div>
+        </div>
+        <div class="proj-meta">
+          <span class="meta-k">type</span><span class="meta-v">MLOps Platform</span>
+          <span class="meta-k">stack</span><span class="meta-v">Spark · K8s</span>
+          <span class="meta-k">repo</span><span class="meta-v"><a href="https://github.com/rkesseku" target="_blank" style="color:var(--accent-2);text-decoration:none;">↗ GitHub</a></span>
+        </div>
+      </div>
+
+      <div class="proj">
+        <div class="proj-num">/04</div>
+        <div class="proj-body">
+          <h3><a href="https://github.com/rkesseku" target="_blank" style="color:inherit;text-decoration:none;">Demand Forecasting &amp; Causal Uplift Engine <em>— Time-Series + DoWhy</em></a></h3>
+          <p>Hybrid forecasting platform combining classical time-series methods (Prophet, statsforecast) with gradient-boosted models, and causal-inference techniques (DoWhy, EconML) to estimate true incremental lift from promotions and operational interventions — moving beyond correlation to decision-grade impact estimates.</p>
+          <div class="proj-tags">
+            <span class="proj-tag">Prophet</span>
+            <span class="proj-tag">DoWhy</span>
+            <span class="proj-tag">EconML</span>
+            <span class="proj-tag">XGBoost</span>
+            <span class="proj-tag">Causal Inference</span>
+          </div>
+        </div>
+        <div class="proj-meta">
+          <span class="meta-k">type</span><span class="meta-v">Forecasting · Causal</span>
+          <span class="meta-k">stack</span><span class="meta-v">Python · Stats</span>
+          <span class="meta-k">stage</span><span class="meta-v" style="color:var(--text-dim);">R&amp;D</span>
+        </div>
+      </div>
+      <div class="proj">
+        <div class="proj-num">/05</div>
+        <div class="proj-body">
+          <h3>Multi-Agent Research &amp; Reporting System <em>— MCP</em></h3>
+          <p>Autonomous agentic AI workflow on LangGraph and Model Context Protocol. Decomposes a research question, orchestrates specialized agents over external tools, and produces a cited executive brief with retry / fallback logic and a token-cost guardrail.</p>
+          <div class="proj-tags">
+            <span class="proj-tag">LangGraph</span>
+            <span class="proj-tag">MCP</span>
+            <span class="proj-tag">RAG</span>
+            <span class="proj-tag">Tool-use auditing</span>
+          </div>
+        </div>
+        <div class="proj-meta">
+          <span class="meta-k">type</span><span class="meta-v">Agentic AI</span>
+          <span class="meta-k">stack</span><span class="meta-v">Python · LLMs</span>
+          <span class="meta-k">stage</span><span class="meta-v" style="color:var(--text-dim);">In development</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ EXPERIENCE ═══════════ -->
+<section id="experience">
+  <div class="shell">
+    <div class="sec-num">03 — Experience</div>
+    <h2 class="sec-title">A decade of shipping in <em>regulated domains</em>.</h2>
+
+    <div class="xp">
+      <div class="xp-when">
+        Jul 2023 — Present
+        <span class="xp-where">Colorado Springs, CO</span>
+      </div>
+      <div>
+        <div class="xp-role">Senior Data Scientist · ML/AI Engineer</div>
+        <div class="xp-org">BAYADA Home Healthcare</div>
+        <ul>
+          <li>Own end-to-end analytics for clinical quality, operational KPIs, and regulatory reporting — partnering with clinical, operations, and compliance leadership to translate business questions into data products.</li>
+          <li>Designed and shipped 15+ production Tableau and Databricks dashboards consumed by 100+ enterprise stakeholders, materially reducing reporting backlog and enabling self-service access to patient-outcome and operational metrics.</li>
+          <li>Engineered LLM-powered AI agents for clinical insight extraction from unstructured notes, combining RAG with structured-output validation — cut manual review time by 40%.</li>
+          <li>Built scalable, reproducible MLOps pipelines using Docker, GitHub Actions, and MLflow; standardized feature engineering and data validation, reducing reporting and modeling errors ~25%.</li>
+          <li>Applied statistical modeling and machine learning to operational data, including predictive analytics on patient volume, quality indicators, and workforce signals; translated findings into recommendations for non-technical leadership.</li>
+          <li>Mentor analysts, data scientists, and ML engineers on statistical rigor, dashboard design, MLOps best practices, and production readiness.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="xp">
+      <div class="xp-when">
+        Sep 2022 — Jun 2023
+        <span class="xp-where">Richland, WA</span>
+      </div>
+      <div>
+        <div class="xp-role">Data Scientist</div>
+        <div class="xp-org">Pacific Northwest National Laboratory</div>
+        <ul>
+          <li>Engineered privacy-preserving ML for sensitive healthcare data: differentially private GANs for synthetic data, privacy-preserving training on PHI, federated approaches across institutions.</li>
+          <li>Built reusable validation frameworks quantifying the tradeoff between model utility, privacy risk, and deployment readiness — defensible go/no-go basis for engineering teams.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="xp">
+      <div class="xp-when">
+        Jun 2021 — Aug 2022
+        <span class="xp-where">El Paso, TX</span>
+      </div>
+      <div>
+        <div class="xp-role">ML / Data Scientist</div>
+        <div class="xp-org">William Beaumont Army Medical Center</div>
+        <ul>
+          <li>Built predictive ML pipelines for patient risk and 30-day readmission in a regulated healthcare environment using survival analysis and imbalanced-learning techniques.</li>
+          <li>Constructed analytic datasets from disparate healthcare sources using SQL and Python; partnered with clinicians to align models with operational and regulatory requirements.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="xp">
+      <div class="xp-when">
+        Aug 2019 — May 2021
+        <span class="xp-where">El Paso, TX</span>
+      </div>
+      <div>
+        <div class="xp-role">Data Analyst</div>
+        <div class="xp-org">UTEP Data Analytics Lab</div>
+        <ul>
+          <li>Led analytical and modeling projects on cancer treatment outcomes, identifying key drivers of treatment effectiveness.</li>
+          <li>Translated business requirements from non-technical stakeholders into reproducible dashboards and LaTeX reports.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="xp">
+      <div class="xp-when">
+        Jun 2016 — Jul 2019
+        <span class="xp-where">Ghana</span>
+      </div>
+      <div>
+        <div class="xp-role">Statistician</div>
+        <div class="xp-org">La Veterinary Service</div>
+        <ul>
+          <li>Analyzed 1,500+ case records to identify disease patterns; built forecasting models to anticipate outbreaks and improve resource planning.</li>
+          <li>Conducted causal inference on 10,000+ records, contributing to a 15% improvement in treatment outcomes.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ SKILLS ═══════════ -->
+<section id="skills">
+  <div class="shell">
+    <div class="sec-num">04 — Capabilities</div>
+    <h2 class="sec-title">The <em>full stack</em>, end to end.</h2>
+
+    <div class="skill-grid">
+      <div class="skill-cat">
+        <span class="skill-cat-num">/01</span>
+        <div class="skill-cat-name">GenAI &amp; <em>LLMs</em></div>
+        <div class="skill-items">
+          <span>RAG</span><span>Prompt engineering</span><span>Fine-tuning (LoRA/PEFT)</span><span>LLM evaluation</span><span>Guardrails</span><span>Structured outputs</span><span>Function calling</span><span>OpenAI / Gemini / Groq / Ollama</span>
+        </div>
+      </div>
+      <div class="skill-cat">
+        <span class="skill-cat-num">/02</span>
+        <div class="skill-cat-name"><em>Agentic</em> AI</div>
+        <div class="skill-items">
+          <span>LangChain</span><span>LangGraph</span><span>LlamaIndex</span><span>PydanticAI</span><span>AutoGen</span><span>CrewAI</span><span>Model Context Protocol (MCP)</span>
+        </div>
+      </div>
+      <div class="skill-cat">
+        <span class="skill-cat-num">/03</span>
+        <div class="skill-cat-name">Analytics &amp; <em>Statistics</em></div>
+        <div class="skill-items">
+          <span>Statistical inference</span><span>Hypothesis testing</span><span>A/B testing</span><span>Causal inference (DoWhy, EconML)</span><span>Time-series forecasting (Prophet)</span><span>Survival analysis</span><span>Imbalanced learning</span><span>statsmodels</span>
+        </div>
+      </div>
+      <div class="skill-cat">
+        <span class="skill-cat-num">/04</span>
+        <div class="skill-cat-name">ML &amp; <em>Modeling</em></div>
+        <div class="skill-items">
+          <span>Scikit-learn</span><span>XGBoost</span><span>PyTorch</span><span>TensorFlow / Keras</span><span>PySpark MLlib</span><span>Optuna</span><span>NLP &amp; text analytics</span>
+        </div>
+      </div>
+      <div class="skill-cat">
+        <span class="skill-cat-num">/05</span>
+        <div class="skill-cat-name">MLOps &amp; <em>Serving</em></div>
+        <div class="skill-items">
+          <span>MLflow</span><span>FastAPI</span><span>Docker</span><span>Kubernetes</span><span>GitHub Actions</span><span>Jenkins</span><span>Grafana / Prometheus</span><span>Great Expectations</span>
+        </div>
+      </div>
+      <div class="skill-cat">
+        <span class="skill-cat-num">/06</span>
+        <div class="skill-cat-name">Cloud &amp; <em>Data</em></div>
+        <div class="skill-items">
+          <span>Databricks</span><span>AWS (S3/EC2/Lambda/SageMaker)</span><span>Azure (ML, Data Factory)</span><span>Unity Catalog</span><span>Model Serving</span><span>Vector stores</span>
+        </div>
+      </div>
+      <div class="skill-cat">
+        <span class="skill-cat-num">/07</span>
+        <div class="skill-cat-name">Viz &amp; <em>BI</em></div>
+        <div class="skill-items">
+          <span>Tableau</span><span>Sigma</span><span>Databricks dashboards</span><span>Plotly</span><span>Executive storytelling</span><span>Requirements gathering</span>
+        </div>
+      </div>
+      <div class="skill-cat">
+        <span class="skill-cat-num">/08</span>
+        <div class="skill-cat-name">Languages &amp; <em>Tools</em></div>
+        <div class="skill-items">
+          <span>Python (pandas, scikit-learn, statsmodels)</span><span>SQL</span><span>R</span><span>PySpark</span><span>Bash / Linux</span><span>Git</span><span>Jenkins</span><span>Ansible</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ EDUCATION & RESEARCH ═══════════ -->
+<section id="education">
+  <div class="shell">
+    <div class="sec-num">05 — Foundations</div>
+    <h2 class="sec-title">Education &amp; <em>certifications</em>.</h2>
+
+    <div class="edu-grid">
+      <div>
+        <div class="edu-item">
+          <div class="edu-degree">Ph.D., Data Science</div>
+          <div class="edu-school">University of Texas at El Paso</div>
+          <div class="edu-meta">2021 — 2025 · GPA 3.96 / 4.00</div>
+        </div>
+        <div class="edu-item">
+          <div class="edu-degree">M.S., Statistics</div>
+          <div class="edu-school">University of Texas at El Paso</div>
+          <div class="edu-meta">2019 — 2021 · GPA 4.00 / 4.00</div>
+        </div>
+        <div class="edu-item">
+          <div class="edu-degree">B.S., Statistics with Mathematics</div>
+          <div class="edu-school">University of Ghana, Legon</div>
+          <div class="edu-meta">2012 — 2016 · GPA 3.72 / 4.00</div>
+        </div>
+      </div>
+
+      <div>
+        <div class="cert-block">
+          <h4>Certifications</h4>
+          <ul class="cert-list">
+            <li>Practical MLOps for Data Scientists</li>
+            <li>Full-Stack Data Scientist (DataMentor)</li>
+            <li>Microsoft Azure for Data Engineering</li>
+            <li>AWS Fundamentals: Going Cloud-Native</li>
+            <li>Natural Language Processing &amp; Capstone</li>
+            <li>Build Basic Generative Adversarial Networks</li>
+            <li>Data-Driven Decisions with Power BI</li>
+            <li>The Ultimate MySQL Bootcamp</li>
+          </ul>
+        </div>
+
+        <div class="research-card" style="margin-top:40px;">
+          <div class="research-title">A Profile Wald Test in M-Estimation</div>
+          <div class="research-desc">Doctoral dissertation — methodology for hypothesis testing on a target parameter in the presence of high-dimensional nuisance parameters under M-estimation. UTEP, 2025.</div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ CONTACT ═══════════ -->
+<section id="contact" class="contact">
+  <div class="shell">
+    <div class="contact-tag">— Let's talk —</div>
+    <h2>Building something <em>ambitious</em>?<br>I'd like to hear about it.</h2>
+    <p class="contact-sub">Open to Senior Data Scientist and Senior ML/AI Engineering roles. Particularly interested in teams that need both statistical rigor and engineering muscle — analytics that drive decisions, models that run in production. DoD Secret cleared. Onsite, hybrid, or remote.</p>
+    <div class="contact-links">
+      <a class="contact-link" href="mailto:reagankesseku@gmail.com">
+        ✉ reagankesseku@gmail.com
+      </a>
+      <a class="contact-link" href="https://linkedin.com/in/reagan-kesseku-ph-d-570187146" target="_blank">
+        ↳ LinkedIn
+      </a>
+      <a class="contact-link" href="https://github.com/rkesseku" target="_blank">
+        ↳ GitHub
+      </a>
+      <a class="contact-link" href="tel:+19153313927">
+        ☏ (915) 331-3927
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ FOOTER ═══════════ -->
+<footer>
+  <div class="shell">
+    <p>© 2026 Reagan Kesseku — All systems shipping.</p>
+    <p class="signature">Built with care. Crafted in Colorado Springs.</p>
+  </div>
+</footer>
+
+<script>
+// Scroll reveal
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) e.target.classList.add('visible');
+  });
+}, { threshold: 0.1 });
+
+document.querySelectorAll('section').forEach(el => {
+  el.classList.add('reveal');
+  observer.observe(el);
+});
+</script>
+
+</body>
+</html>
