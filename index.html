@@ -770,6 +770,39 @@ footer .signature {
   opacity: 1;
   transform: translateY(0);
 }
+
+/* ───────────────────── READABILITY OVERRIDES ───────────────────── */
+:root { --label-red: #EF4444; }
+.sec-num {
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  color: var(--label-red);
+  margin-bottom: 20px;
+}
+.sec-num::before { width: 40px; height: 2px; background: var(--label-red); }
+.nav-links { font-size: 14px; gap: 32px; }
+.nav-logo { font-size: 16px; }
+.hero-tag { font-size: 13px; }
+.chip { font-size: 13px; }
+.btn { font-size: 14px; }
+.proj-num { font-size: 15px; color: var(--label-red); }
+.proj-body p { font-size: 17px; max-width: 640px; }
+.proj-tag { font-size: 12.5px; }
+.proj-meta { font-size: 13px; }
+.proj-meta .meta-k { font-size: 12px; }
+.proj-meta .meta-v { font-size: 14px; }
+.stat-lbl { font-size: 13px; }
+.xp-when { font-size: 13px; }
+.xp-where, .xp-org { font-size: 14px; }
+.skill-cat-num { font-size: 13px; color: var(--label-red); }
+.skill-items { font-size: 14px; }
+.edu-school { font-size: 14px; }
+.edu-meta { font-size: 13px; }
+.cert-block h4 { font-size: 14px; color: var(--label-red); }
+.research-desc { font-size: 16px; }
+.contact-tag { font-size: 14px; color: var(--label-red); }
+footer p, footer .signature { font-size: 13px; }
 </style>
 </head>
 <body>
