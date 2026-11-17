@@ -989,7 +989,7 @@ footer p, footer .signature { font-size: 13px; }
         <div class="proj-num">/06</div>
         <div class="proj-body">
           <h3><a href="https://github.com/rkesseku/clinical-lora-extractor" target="_blank" style="color:inherit;text-decoration:none;">Biomedical Entity Extractor <em>— LoRA vs. Prompting</em></a></h3>
-          <p>Fine-tunes Qwen2.5-1.5B with LoRA on a Colab GPU to extract chemicals and diseases from biomedical text (BC5CDR) as validated JSON, and compares it with few-shot prompting on strict / relaxed F1 with bootstrap CIs, latency and cost. Served through FastAPI with schema validation and JSON repair.</p>
+          <p>Fine-tunes Qwen2.5-1.5B with LoRA on a Colab GPU to extract chemicals and diseases from biomedical text (BC5CDR) as validated JSON, and compares it with few-shot prompting on strict / relaxed F1 with bootstrap CIs, latency and cost. On a held-out test set, LoRA lifts strict F1 from 0.46 to 0.82 (paired bootstrap +0.36, 95% CI [0.31, 0.42]) after a 5-minute T4 run. Served through FastAPI with schema validation and JSON repair.</p>
           <div class="proj-tags">
             <span class="proj-tag">LoRA / PEFT</span>
             <span class="proj-tag">Transformers</span>
