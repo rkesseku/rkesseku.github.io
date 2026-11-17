@@ -4,7 +4,26 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Reagan Kesseku — Senior Data Scientist · ML/AI Engineer</title>
-<meta name="description" content="Senior Data Scientist and ML/AI Engineer with 9+ years building production analytics, ML, and GenAI systems that move enterprise KPIs. Active DoD Secret Clearance.">
+<meta name="description" content="Reagan Kesseku, Ph.D. — Senior Data Scientist and ML/AI Engineer with 9+ years building production analytics, ML and GenAI systems. Six open-source projects with tests, CI and summary PDFs. Active DoD Secret Clearance.">
+<link rel="canonical" href="https://rkesseku.github.io/">
+<meta name="author" content="Reagan Kesseku">
+<meta name="theme-color" content="#0A0A0A">
+<meta property="og:type" content="profile">
+<meta property="og:url" content="https://rkesseku.github.io/">
+<meta property="og:title" content="Reagan Kesseku, Ph.D. — Senior Data Scientist · ML/AI Engineer">
+<meta property="og:description" content="Production analytics, ML and GenAI systems with statistical rigor. Six open-source projects with tests, CI and summary PDFs.">
+<meta property="og:image" content="https://rkesseku.github.io/og-card.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Reagan Kesseku, Ph.D. — Senior Data Scientist · ML/AI Engineer">
+<meta name="twitter:description" content="Production analytics, ML and GenAI systems with statistical rigor.">
+<meta name="twitter:image" content="https://rkesseku.github.io/og-card.png">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230A0A0A'/%3E%3Ctext x='32' y='42' font-family='Arial,Helvetica,sans-serif' font-size='28' font-weight='700' text-anchor='middle' fill='%23FF6B35'%3ERK%3C/text%3E%3C/svg%3E">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Person","name":"Reagan Kesseku","honorificSuffix":"Ph.D.","jobTitle":"Senior Data Scientist & ML/AI Engineer","url":"https://rkesseku.github.io/","address":{"@type":"PostalAddress","addressLocality":"Colorado Springs","addressRegion":"CO","addressCountry":"US"},"alumniOf":[{"@type":"CollegeOrUniversity","name":"The University of Texas at El Paso"},{"@type":"CollegeOrUniversity","name":"University of Ghana"}],"knowsAbout":["Machine learning","Statistics","Causal inference","A/B testing","MLOps","Generative AI","LLM evaluation"],"sameAs":["https://github.com/rkesseku","https://linkedin.com/in/reagan-kesseku-ph-d-570187146"]}
+</script>
+<script>document.documentElement.classList.add('js');</script>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -803,9 +822,55 @@ footer .signature {
 .research-desc { font-size: 16px; }
 .contact-tag { font-size: 14px; color: var(--label-red); }
 footer p, footer .signature { font-size: 13px; }
+
+/* ───────────────────── REFINEMENTS ───────────────────── */
+:root { --text-mute: #8A8A8A; }               /* AA contrast on #0A0A0A */
+.proj { cursor: default; }
+.proj-body p.proj-result {
+  font-family: var(--mono);
+  font-size: 14px;
+  color: var(--accent-2);
+  margin: -4px 0 16px;
+  letter-spacing: 0.01em;
+}
+.proj-result::before { content: '▸ '; }
+.proof {
+  margin-top: 48px;
+  display: flex; flex-wrap: wrap; gap: 10px 28px;
+  font-family: var(--mono); font-size: 13px; color: var(--text-dim);
+  animation: fadeUp 0.8s ease-out 0.5s both;
+}
+.proof b { color: var(--text); font-weight: 600; }
+.proof span::before { content: '◆ '; color: var(--accent); font-size: 9px; vertical-align: 2px; }
+.skip-link {
+  position: absolute; left: -9999px; top: 8px; z-index: 200;
+  background: var(--accent); color: var(--bg); padding: 8px 14px; font-family: var(--mono);
+}
+.skip-link:focus { left: 8px; }
+a:focus-visible, .btn:focus-visible, .contact-link:focus-visible {
+  outline: 2px solid var(--accent); outline-offset: 3px;
+}
+/* Only hide content for the scroll reveal when JS runs, so it is never invisible */
+html:not(.js) .reveal { opacity: 1; transform: none; }
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { animation: none !important; transition: none !important; }
+  .reveal { opacity: 1 !important; transform: none !important; }
+}
+/* Keep navigation on small screens instead of hiding it */
+@media (max-width: 720px) {
+  .nav-links { display: flex !important; gap: 16px; font-size: 11px; overflow-x: auto; max-width: 100%; }
+  nav .shell { flex-direction: column; align-items: flex-start; gap: 10px; }
+  .hero { padding-top: 150px; }
+}
+@media print {
+  body::before, nav, .hero-cta { display: none; }
+  .reveal { opacity: 1; transform: none; }
+}
 </style>
 </head>
 <body>
+<a class="skip-link" href="#work">Skip to projects</a>
 
 <!-- ═══════════ NAV ═══════════ -->
 <nav>
@@ -845,6 +910,11 @@ footer p, footer .signature { font-size: 13px; }
       <a class="btn btn-ghost" href="#contact">
         Get in touch <span class="btn-arrow">↗</span>
       </a>
+    </div>
+    <div class="proof" aria-label="Portfolio at a glance">
+      <span><b>6</b> open-source ML projects</span>
+      <span><b>466</b> automated tests, CI on every push</span>
+      <span>A summary PDF for each project</span>
     </div>
   </div>
 </header>
@@ -893,8 +963,9 @@ footer p, footer .signature { font-size: 13px; }
       <div class="proj">
         <div class="proj-num">/01</div>
         <div class="proj-body">
-          <h3><a href="https://github.com/rkesseku/analytics-copilot" target="_blank" style="color:inherit;text-decoration:none;">Conversational Analytics Copilot <em>— Text-to-SQL + RAG</em></a></h3>
+          <h3><a href="https://github.com/rkesseku/analytics-copilot" target="_blank" rel="noopener" style="color:inherit;text-decoration:none;">Conversational Analytics Copilot <em>— Text-to-SQL + RAG</em></a></h3>
           <p>Natural-language assistant that retrieves relevant schema, turns business questions into validated, read-only SQL (DuckDB locally, Databricks SQL Warehouse via an adapter), and returns charts plus written commentary. Regression-tested on a held-out bank of 25 questions, scored by execution accuracy and an LLM judge, with a CI gate.</p>
+          <p class="proj-result">25-question regression bank with gold SQL; 7 of 7 unsafe queries blocked by the validator.</p>
           <div class="proj-tags">
             <span class="proj-tag">Text-to-SQL</span>
             <span class="proj-tag">RAG</span>
@@ -906,15 +977,16 @@ footer p, footer .signature { font-size: 13px; }
         <div class="proj-meta">
           <span class="meta-k">type</span><span class="meta-v">GenAI · Analytics</span>
           <span class="meta-k">stack</span><span class="meta-v">Python · DuckDB · Databricks SQL</span>
-          <span class="meta-k">repo</span><span class="meta-v"><a href="https://github.com/rkesseku/analytics-copilot" target="_blank" style="color:var(--accent-2);text-decoration:none;">↗ GitHub</a></span>
-          <span class="meta-k">brief</span><span class="meta-v"><a href="https://github.com/rkesseku/analytics-copilot/blob/main/docs/brief/brief.pdf" target="_blank" style="color:var(--accent-2);text-decoration:none;">📄 Summary PDF</a></span>
+          <span class="meta-k">repo</span><span class="meta-v"><a href="https://github.com/rkesseku/analytics-copilot" target="_blank" rel="noopener" style="color:var(--accent-2);text-decoration:none;">↗ GitHub</a></span>
+          <span class="meta-k">brief</span><span class="meta-v"><a href="https://github.com/rkesseku/analytics-copilot/blob/main/docs/brief/brief.pdf" target="_blank" rel="noopener" style="color:var(--accent-2);text-decoration:none;">📄 Summary PDF</a></span>
         </div>
       </div>
       <div class="proj">
         <div class="proj-num">/02</div>
         <div class="proj-body">
-          <h3><a href="https://github.com/rkesseku/llm-eval-harness" target="_blank" style="color:inherit;text-decoration:none;">LLM Evaluation &amp; Guardrails <em>— Reusable Harness</em></a></h3>
+          <h3><a href="https://github.com/rkesseku/llm-eval-harness" target="_blank" rel="noopener" style="color:inherit;text-decoration:none;">LLM Evaluation &amp; Guardrails <em>— Reusable Harness</em></a></h3>
           <p>Evaluation framework for LLM apps: LLM-as-judge correctness, groundedness against retrieved context, and deterministic safety checks (PII with Luhn/SSN validation, refusal patterns, prompt-injection signals). A CLI gate fails CI on latency, cost or pass-rate regressions against a stored baseline and writes a Markdown report.</p>
+          <p class="proj-result">CI gate catches injected latency, cost and PII-leak regressions and fails the build.</p>
           <div class="proj-tags">
             <span class="proj-tag">Evals</span>
             <span class="proj-tag">Guardrails</span>
@@ -926,15 +998,16 @@ footer p, footer .signature { font-size: 13px; }
         <div class="proj-meta">
           <span class="meta-k">type</span><span class="meta-v">LLM Infra</span>
           <span class="meta-k">stack</span><span class="meta-v">Python · GitHub Actions</span>
-          <span class="meta-k">repo</span><span class="meta-v"><a href="https://github.com/rkesseku/llm-eval-harness" target="_blank" style="color:var(--accent-2);text-decoration:none;">↗ GitHub</a></span>
-          <span class="meta-k">brief</span><span class="meta-v"><a href="https://github.com/rkesseku/llm-eval-harness/blob/main/docs/brief/brief.pdf" target="_blank" style="color:var(--accent-2);text-decoration:none;">📄 Summary PDF</a></span>
+          <span class="meta-k">repo</span><span class="meta-v"><a href="https://github.com/rkesseku/llm-eval-harness" target="_blank" rel="noopener" style="color:var(--accent-2);text-decoration:none;">↗ GitHub</a></span>
+          <span class="meta-k">brief</span><span class="meta-v"><a href="https://github.com/rkesseku/llm-eval-harness/blob/main/docs/brief/brief.pdf" target="_blank" rel="noopener" style="color:var(--accent-2);text-decoration:none;">📄 Summary PDF</a></span>
         </div>
       </div>
       <div class="proj">
         <div class="proj-num">/03</div>
         <div class="proj-body">
-          <h3><a href="https://github.com/rkesseku/mlops-churn" target="_blank" style="color:inherit;text-decoration:none;">End-to-End MLOps Platform <em>— Churn + Drift-Triggered Retraining</em></a></h3>
+          <h3><a href="https://github.com/rkesseku/mlops-churn" target="_blank" rel="noopener" style="color:inherit;text-decoration:none;">End-to-End MLOps Platform <em>— Churn + Drift-Triggered Retraining</em></a></h3>
           <p>Spark feature engineering, XGBoost tuned with Optuna, MLflow tracking and registry, FastAPI serving in Docker, Kubernetes manifests (kustomize, HPA, CronJob), and Prometheus / Grafana monitoring. A scheduled job checks drift (PSI/KS), retrains, and promotes the new model only if it beats the champion on a shared holdout.</p>
+          <p class="proj-result">Retrained models are promoted only when they beat the champion on a shared holdout.</p>
           <div class="proj-tags">
             <span class="proj-tag">MLflow</span>
             <span class="proj-tag">Spark</span>
@@ -946,15 +1019,16 @@ footer p, footer .signature { font-size: 13px; }
         <div class="proj-meta">
           <span class="meta-k">type</span><span class="meta-v">MLOps Platform</span>
           <span class="meta-k">stack</span><span class="meta-v">PySpark · MLflow · K8s</span>
-          <span class="meta-k">repo</span><span class="meta-v"><a href="https://github.com/rkesseku/mlops-churn" target="_blank" style="color:var(--accent-2);text-decoration:none;">↗ GitHub</a></span>
-          <span class="meta-k">brief</span><span class="meta-v"><a href="https://github.com/rkesseku/mlops-churn/blob/main/docs/brief/brief.pdf" target="_blank" style="color:var(--accent-2);text-decoration:none;">📄 Summary PDF</a></span>
+          <span class="meta-k">repo</span><span class="meta-v"><a href="https://github.com/rkesseku/mlops-churn" target="_blank" rel="noopener" style="color:var(--accent-2);text-decoration:none;">↗ GitHub</a></span>
+          <span class="meta-k">brief</span><span class="meta-v"><a href="https://github.com/rkesseku/mlops-churn/blob/main/docs/brief/brief.pdf" target="_blank" rel="noopener" style="color:var(--accent-2);text-decoration:none;">📄 Summary PDF</a></span>
         </div>
       </div>
       <div class="proj">
         <div class="proj-num">/04</div>
         <div class="proj-body">
-          <h3><a href="https://github.com/rkesseku/demand-forecasting-uplift" target="_blank" style="color:inherit;text-decoration:none;">Demand Forecasting &amp; Causal Uplift Engine <em>— Prophet + EconML</em></a></h3>
+          <h3><a href="https://github.com/rkesseku/demand-forecasting-uplift" target="_blank" rel="noopener" style="color:inherit;text-decoration:none;">Demand Forecasting &amp; Causal Uplift Engine <em>— Prophet + EconML</em></a></h3>
           <p>Rolling-origin backtest of Prophet, statsforecast (AutoARIMA/AutoETS) and XGBoost demand forecasters, plus causal estimates of promotion lift with EconML (DML, doubly robust, causal forest) and DoWhy refutation. On synthetic data with known ground truth, naive comparison overstates lift by ~137% while adjusted estimators land within 4–8%.</p>
+          <p class="proj-result">Naive comparison overstates promo lift by ~137%; adjusted estimators land within 4–8%.</p>
           <div class="proj-tags">
             <span class="proj-tag">Prophet</span>
             <span class="proj-tag">statsforecast</span>
@@ -966,15 +1040,16 @@ footer p, footer .signature { font-size: 13px; }
         <div class="proj-meta">
           <span class="meta-k">type</span><span class="meta-v">Forecasting · Causal</span>
           <span class="meta-k">stack</span><span class="meta-v">Python · Stats</span>
-          <span class="meta-k">repo</span><span class="meta-v"><a href="https://github.com/rkesseku/demand-forecasting-uplift" target="_blank" style="color:var(--accent-2);text-decoration:none;">↗ GitHub</a></span>
-          <span class="meta-k">brief</span><span class="meta-v"><a href="https://github.com/rkesseku/demand-forecasting-uplift/blob/main/docs/brief/brief.pdf" target="_blank" style="color:var(--accent-2);text-decoration:none;">📄 Summary PDF</a></span>
+          <span class="meta-k">repo</span><span class="meta-v"><a href="https://github.com/rkesseku/demand-forecasting-uplift" target="_blank" rel="noopener" style="color:var(--accent-2);text-decoration:none;">↗ GitHub</a></span>
+          <span class="meta-k">brief</span><span class="meta-v"><a href="https://github.com/rkesseku/demand-forecasting-uplift/blob/main/docs/brief/brief.pdf" target="_blank" rel="noopener" style="color:var(--accent-2);text-decoration:none;">📄 Summary PDF</a></span>
         </div>
       </div>
       <div class="proj">
         <div class="proj-num">/05</div>
         <div class="proj-body">
-          <h3><a href="https://github.com/rkesseku/experimentation-platform" target="_blank" style="color:inherit;text-decoration:none;">Online Experimentation Platform <em>— A/B Testing Done Right</em></a></h3>
+          <h3><a href="https://github.com/rkesseku/experimentation-platform" target="_blank" rel="noopener" style="color:inherit;text-decoration:none;">Online Experimentation Platform <em>— A/B Testing Done Right</em></a></h3>
           <p>Library, FastAPI service and Streamlit dashboard for A/B tests: power and sample-size design, hash-based assignment with SRM checks, CUPED/CUPAC variance reduction, delta-method ratio metrics, and anytime-valid sequential monitoring. In simulation, naive peeking inflates false positives to 32%; mSPRT holds them at 1.7%.</p>
+          <p class="proj-result">Naive peeking inflates false positives to 32%; mSPRT holds them at 1.7%.</p>
           <div class="proj-tags">
             <span class="proj-tag">A/B testing</span>
             <span class="proj-tag">CUPED</span>
@@ -986,15 +1061,16 @@ footer p, footer .signature { font-size: 13px; }
         <div class="proj-meta">
           <span class="meta-k">type</span><span class="meta-v">Experimentation · Stats</span>
           <span class="meta-k">stack</span><span class="meta-v">Python · SciPy · Streamlit</span>
-          <span class="meta-k">repo</span><span class="meta-v"><a href="https://github.com/rkesseku/experimentation-platform" target="_blank" style="color:var(--accent-2);text-decoration:none;">↗ GitHub</a></span>
-          <span class="meta-k">brief</span><span class="meta-v"><a href="https://github.com/rkesseku/experimentation-platform/blob/main/docs/brief/brief.pdf" target="_blank" style="color:var(--accent-2);text-decoration:none;">📄 Summary PDF</a></span>
+          <span class="meta-k">repo</span><span class="meta-v"><a href="https://github.com/rkesseku/experimentation-platform" target="_blank" rel="noopener" style="color:var(--accent-2);text-decoration:none;">↗ GitHub</a></span>
+          <span class="meta-k">brief</span><span class="meta-v"><a href="https://github.com/rkesseku/experimentation-platform/blob/main/docs/brief/brief.pdf" target="_blank" rel="noopener" style="color:var(--accent-2);text-decoration:none;">📄 Summary PDF</a></span>
         </div>
       </div>
       <div class="proj">
         <div class="proj-num">/06</div>
         <div class="proj-body">
-          <h3><a href="https://github.com/rkesseku/clinical-lora-extractor" target="_blank" style="color:inherit;text-decoration:none;">Biomedical Entity Extractor <em>— LoRA vs. Prompting</em></a></h3>
-          <p>Fine-tunes Qwen2.5-1.5B with LoRA on a Colab GPU to extract chemicals and diseases from biomedical text (BC5CDR) as validated JSON, and compares it with few-shot prompting on strict / relaxed F1 with bootstrap CIs, latency and cost. On a held-out test set, LoRA lifts strict F1 from 0.46 to 0.82 (paired bootstrap +0.36, 95% CI [0.31, 0.42]) after a 5-minute T4 run. Served through FastAPI with schema validation and JSON repair.</p>
+          <h3><a href="https://github.com/rkesseku/clinical-lora-extractor" target="_blank" rel="noopener" style="color:inherit;text-decoration:none;">Biomedical Entity Extractor <em>— LoRA vs. Prompting</em></a></h3>
+          <p>Fine-tunes Qwen2.5-1.5B with LoRA on a Colab GPU to extract chemicals and diseases from biomedical text (BC5CDR) as validated JSON, and compares it with few-shot prompting on strict / relaxed F1 with bootstrap CIs, latency and cost. Served through FastAPI with schema validation and JSON repair.</p>
+          <p class="proj-result">Strict F1 0.46 → 0.82 vs few-shot prompting; paired-bootstrap CI [+0.31, +0.42].</p>
           <div class="proj-tags">
             <span class="proj-tag">LoRA / PEFT</span>
             <span class="proj-tag">Transformers</span>
@@ -1006,8 +1082,8 @@ footer p, footer .signature { font-size: 13px; }
         <div class="proj-meta">
           <span class="meta-k">type</span><span class="meta-v">Fine-tuning · NLP</span>
           <span class="meta-k">stack</span><span class="meta-v">PyTorch · PEFT</span>
-          <span class="meta-k">repo</span><span class="meta-v"><a href="https://github.com/rkesseku/clinical-lora-extractor" target="_blank" style="color:var(--accent-2);text-decoration:none;">↗ GitHub</a></span>
-          <span class="meta-k">brief</span><span class="meta-v"><a href="https://github.com/rkesseku/clinical-lora-extractor/blob/main/docs/brief/brief.pdf" target="_blank" style="color:var(--accent-2);text-decoration:none;">📄 Summary PDF</a></span>
+          <span class="meta-k">repo</span><span class="meta-v"><a href="https://github.com/rkesseku/clinical-lora-extractor" target="_blank" rel="noopener" style="color:var(--accent-2);text-decoration:none;">↗ GitHub</a></span>
+          <span class="meta-k">brief</span><span class="meta-v"><a href="https://github.com/rkesseku/clinical-lora-extractor/blob/main/docs/brief/brief.pdf" target="_blank" rel="noopener" style="color:var(--accent-2);text-decoration:none;">📄 Summary PDF</a></span>
         </div>
       </div>
       <div class="proj">
@@ -1246,10 +1322,10 @@ footer p, footer .signature { font-size: 13px; }
       <a class="contact-link" href="mailto:reagankesseku@gmail.com">
         ✉ reagankesseku@gmail.com
       </a>
-      <a class="contact-link" href="https://linkedin.com/in/reagan-kesseku-ph-d-570187146" target="_blank">
+      <a class="contact-link" href="https://linkedin.com/in/reagan-kesseku-ph-d-570187146" target="_blank" rel="noopener">
         ↳ LinkedIn
       </a>
-      <a class="contact-link" href="https://github.com/rkesseku" target="_blank">
+      <a class="contact-link" href="https://github.com/rkesseku" target="_blank" rel="noopener">
         ↳ GitHub
       </a>
       <a class="contact-link" href="tel:+19153313927">
@@ -1262,8 +1338,8 @@ footer p, footer .signature { font-size: 13px; }
 <!-- ═══════════ FOOTER ═══════════ -->
 <footer>
   <div class="shell">
-    <p>© 2026 Reagan Kesseku — All systems shipping.</p>
-    <p class="signature">Built with care. Crafted in Colorado Springs.</p>
+    <p>© 2026 Reagan Kesseku, Ph.D.</p>
+    <p class="signature"><a href="https://github.com/rkesseku" target="_blank" rel="noopener" style="color:inherit">GitHub</a> · <a href="https://linkedin.com/in/reagan-kesseku-ph-d-570187146" target="_blank" rel="noopener" style="color:inherit">LinkedIn</a> · Colorado Springs, CO</p>
   </div>
 </footer>
 
