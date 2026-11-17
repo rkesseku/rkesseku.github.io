@@ -887,78 +887,77 @@ footer p, footer .signature { font-size: 13px; }
 <section id="work">
   <div class="shell">
     <div class="sec-num">02 — Selected Work</div>
-    <h2 class="sec-title">Five projects I'd <em>walk you through</em> in an interview.</h2>
+    <h2 class="sec-title">Projects I'd <em>walk you through</em> in an interview.</h2>
 
     <div class="proj-list">
       <div class="proj">
         <div class="proj-num">/01</div>
         <div class="proj-body">
           <h3><a href="https://github.com/rkesseku/analytics-copilot" target="_blank" style="color:inherit;text-decoration:none;">Conversational Analytics Copilot <em>— Text-to-SQL + RAG</em></a></h3>
-          <p>Natural-language assistant that converts business questions into governed SQL against a Databricks warehouse, returns charts plus written commentary, and is regression-tested via an LLM-as-judge harness over a held-out query bank.</p>
+          <p>Natural-language assistant that retrieves relevant schema, turns business questions into validated, read-only SQL (DuckDB locally, Databricks SQL Warehouse via an adapter), and returns charts plus written commentary. Regression-tested on a held-out bank of 25 questions, scored by execution accuracy and an LLM judge, with a CI gate.</p>
           <div class="proj-tags">
-            <span class="proj-tag">Databricks</span>
             <span class="proj-tag">Text-to-SQL</span>
             <span class="proj-tag">RAG</span>
+            <span class="proj-tag">Databricks</span>
             <span class="proj-tag">LLM-as-judge</span>
+            <span class="proj-tag">sqlglot</span>
           </div>
         </div>
         <div class="proj-meta">
           <span class="meta-k">type</span><span class="meta-v">GenAI · Analytics</span>
-          <span class="meta-k">stack</span><span class="meta-v">LangChain · SQL</span>
+          <span class="meta-k">stack</span><span class="meta-v">Python · DuckDB · Databricks SQL</span>
           <span class="meta-k">repo</span><span class="meta-v"><a href="https://github.com/rkesseku/analytics-copilot" target="_blank" style="color:var(--accent-2);text-decoration:none;">↗ GitHub</a></span>
         </div>
       </div>
-
       <div class="proj">
         <div class="proj-num">/02</div>
         <div class="proj-body">
           <h3><a href="https://github.com/rkesseku/llm-eval-harness" target="_blank" style="color:inherit;text-decoration:none;">LLM Evaluation &amp; Guardrails <em>— Reusable Harness</em></a></h3>
-          <p>Production evaluation framework covering correctness (LLM-as-judge + rubric scoring), groundedness against retrieved context, safety / PII filters, and latency / cost regression tests — CI-integrated so every prompt or model change runs the full suite before promotion.</p>
+          <p>Evaluation framework for LLM apps: LLM-as-judge correctness, groundedness against retrieved context, and deterministic safety checks (PII with Luhn/SSN validation, refusal patterns, prompt-injection signals). A CLI gate fails CI on latency, cost or pass-rate regressions against a stored baseline and writes a Markdown report.</p>
           <div class="proj-tags">
             <span class="proj-tag">Evals</span>
-            <span class="proj-tag">CI/CD</span>
             <span class="proj-tag">Guardrails</span>
-            <span class="proj-tag">PII filtering</span>
+            <span class="proj-tag">PII detection</span>
+            <span class="proj-tag">CI/CD</span>
+            <span class="proj-tag">Pydantic</span>
           </div>
         </div>
         <div class="proj-meta">
           <span class="meta-k">type</span><span class="meta-v">LLM Infra</span>
-          <span class="meta-k">stack</span><span class="meta-v">Python · GH Actions</span>
+          <span class="meta-k">stack</span><span class="meta-v">Python · GitHub Actions</span>
           <span class="meta-k">repo</span><span class="meta-v"><a href="https://github.com/rkesseku/llm-eval-harness" target="_blank" style="color:var(--accent-2);text-decoration:none;">↗ GitHub</a></span>
         </div>
       </div>
-
       <div class="proj">
         <div class="proj-num">/03</div>
         <div class="proj-body">
-          <h3><a href="https://github.com/rkesseku/mlops-churn" target="_blank" style="color:inherit;text-decoration:none;">End-to-End MLOps Platform <em>— Churn + Drift Monitoring</em></a></h3>
-          <p>Spark-based feature engineering, XGBoost training with Optuna tuning, MLflow registry, FastAPI serving in Docker, Kubernetes deployment, and Grafana / Prometheus monitoring with automated drift-triggered retraining. The whole MLOps lifecycle in one walkthrough.</p>
+          <h3><a href="https://github.com/rkesseku/mlops-churn" target="_blank" style="color:inherit;text-decoration:none;">End-to-End MLOps Platform <em>— Churn + Drift-Triggered Retraining</em></a></h3>
+          <p>Spark feature engineering, XGBoost tuned with Optuna, MLflow tracking and registry, FastAPI serving in Docker, Kubernetes manifests (kustomize, HPA, CronJob), and Prometheus / Grafana monitoring. A scheduled job checks drift (PSI/KS), retrains, and promotes the new model only if it beats the champion on a shared holdout.</p>
           <div class="proj-tags">
             <span class="proj-tag">MLflow</span>
-            <span class="proj-tag">FastAPI</span>
+            <span class="proj-tag">Spark</span>
+            <span class="proj-tag">XGBoost</span>
             <span class="proj-tag">Kubernetes</span>
             <span class="proj-tag">Drift monitoring</span>
-            <span class="proj-tag">XGBoost</span>
           </div>
         </div>
         <div class="proj-meta">
           <span class="meta-k">type</span><span class="meta-v">MLOps Platform</span>
-          <span class="meta-k">stack</span><span class="meta-v">Spark · K8s</span>
+          <span class="meta-k">stack</span><span class="meta-v">PySpark · MLflow · K8s</span>
           <span class="meta-k">repo</span><span class="meta-v"><a href="https://github.com/rkesseku/mlops-churn" target="_blank" style="color:var(--accent-2);text-decoration:none;">↗ GitHub</a></span>
         </div>
       </div>
-
       <div class="proj">
         <div class="proj-num">/04</div>
         <div class="proj-body">
-          <h3><a href="https://github.com/rkesseku/demand-forecasting-uplift" target="_blank" style="color:inherit;text-decoration:none;">Demand Forecasting &amp; Causal Uplift Engine <em>— Time-Series + DoWhy</em></a></h3>
-          <p>Hybrid forecasting platform combining classical time-series methods (Prophet, statsforecast) with gradient-boosted models, and causal-inference techniques (DoWhy, EconML) to estimate true incremental lift from promotions and operational interventions — moving beyond correlation to decision-grade impact estimates.</p>
+          <h3><a href="https://github.com/rkesseku/demand-forecasting-uplift" target="_blank" style="color:inherit;text-decoration:none;">Demand Forecasting &amp; Causal Uplift Engine <em>— Prophet + EconML</em></a></h3>
+          <p>Rolling-origin backtest of Prophet, statsforecast (AutoARIMA/AutoETS) and XGBoost demand forecasters, plus causal estimates of promotion lift with EconML (DML, doubly robust, causal forest) and DoWhy refutation. On synthetic data with known ground truth, naive comparison overstates lift by ~137% while adjusted estimators land within 4–8%.</p>
           <div class="proj-tags">
             <span class="proj-tag">Prophet</span>
-            <span class="proj-tag">DoWhy</span>
+            <span class="proj-tag">statsforecast</span>
             <span class="proj-tag">EconML</span>
+            <span class="proj-tag">DoWhy</span>
             <span class="proj-tag">XGBoost</span>
-            <span class="proj-tag">Causal Inference</span>
           </div>
         </div>
         <div class="proj-meta">
@@ -969,6 +968,44 @@ footer p, footer .signature { font-size: 13px; }
       </div>
       <div class="proj">
         <div class="proj-num">/05</div>
+        <div class="proj-body">
+          <h3><a href="https://github.com/rkesseku/experimentation-platform" target="_blank" style="color:inherit;text-decoration:none;">Online Experimentation Platform <em>— A/B Testing Done Right</em></a></h3>
+          <p>Library, FastAPI service and Streamlit dashboard for A/B tests: power and sample-size design, hash-based assignment with SRM checks, CUPED/CUPAC variance reduction, delta-method ratio metrics, and anytime-valid sequential monitoring. In simulation, naive peeking inflates false positives to 32%; mSPRT holds them at 1.7%.</p>
+          <div class="proj-tags">
+            <span class="proj-tag">A/B testing</span>
+            <span class="proj-tag">CUPED</span>
+            <span class="proj-tag">Sequential testing</span>
+            <span class="proj-tag">SRM</span>
+            <span class="proj-tag">FastAPI</span>
+          </div>
+        </div>
+        <div class="proj-meta">
+          <span class="meta-k">type</span><span class="meta-v">Experimentation · Stats</span>
+          <span class="meta-k">stack</span><span class="meta-v">Python · SciPy · Streamlit</span>
+          <span class="meta-k">repo</span><span class="meta-v"><a href="https://github.com/rkesseku/experimentation-platform" target="_blank" style="color:var(--accent-2);text-decoration:none;">↗ GitHub</a></span>
+        </div>
+      </div>
+      <div class="proj">
+        <div class="proj-num">/06</div>
+        <div class="proj-body">
+          <h3><a href="https://github.com/rkesseku/clinical-lora-extractor" target="_blank" style="color:inherit;text-decoration:none;">Biomedical Entity Extractor <em>— LoRA vs. Prompting</em></a></h3>
+          <p>Fine-tunes Qwen2.5-1.5B with LoRA on a Colab GPU to extract chemicals and diseases from biomedical text (BC5CDR) as validated JSON, and compares it with few-shot prompting on strict / relaxed F1 with bootstrap CIs, latency and cost. Served through FastAPI with schema validation and JSON repair.</p>
+          <div class="proj-tags">
+            <span class="proj-tag">LoRA / PEFT</span>
+            <span class="proj-tag">Transformers</span>
+            <span class="proj-tag">Biomedical NLP</span>
+            <span class="proj-tag">LLM evaluation</span>
+            <span class="proj-tag">FastAPI</span>
+          </div>
+        </div>
+        <div class="proj-meta">
+          <span class="meta-k">type</span><span class="meta-v">Fine-tuning · NLP</span>
+          <span class="meta-k">stack</span><span class="meta-v">PyTorch · PEFT</span>
+          <span class="meta-k">repo</span><span class="meta-v"><a href="https://github.com/rkesseku/clinical-lora-extractor" target="_blank" style="color:var(--accent-2);text-decoration:none;">↗ GitHub</a></span>
+        </div>
+      </div>
+      <div class="proj">
+        <div class="proj-num">/07</div>
         <div class="proj-body">
           <h3>Multi-Agent Research &amp; Reporting System <em>— MCP</em></h3>
           <p>Autonomous agentic AI workflow on LangGraph and Model Context Protocol. Decomposes a research question, orchestrates specialized agents over external tools, and produces a cited executive brief with retry / fallback logic and a token-cost guardrail.</p>
