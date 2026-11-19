@@ -987,26 +987,47 @@ html:not(.js) .reveal { opacity: 1; transform: none; }
       <div class="proj">
         <div class="proj-num">/02</div>
         <div class="proj-body">
-          <h3><a href="https://github.com/rkesseku/analytics-copilot" target="_blank" rel="noopener" style="color:inherit;text-decoration:none;">Conversational Analytics Copilot <em>— Text-to-SQL + RAG</em></a></h3>
-          <p>Natural-language assistant that retrieves relevant schema, turns business questions into validated, read-only SQL (DuckDB locally, Databricks SQL Warehouse via an adapter), and returns charts plus written commentary. Regression-tested on a held-out bank of 25 questions, scored by execution accuracy and an LLM judge, with a CI gate.</p>
-          <p class="proj-result">25-question regression bank with gold SQL; 7 of 7 unsafe queries blocked by the validator.</p>
+          <h3><a href="https://github.com/rkesseku/readmission-risk-audit" target="_blank" rel="noopener" style="color:inherit;text-decoration:none;">Hospital Readmission Risk <em>— Calibrated, Audited, Decision-Ready</em></a></h3>
+          <p>Predicts 30-day readmission on 100k real diabetic inpatient encounters (UCI Diabetes 130) with patient-level splits and leakage-safe history features. Goes beyond AUROC: Venn-Abers and isotonic calibration, decision-curve net benefit, a subgroup fairness audit by age, sex and race with clustered-bootstrap CIs, and a model card.</p>
+          <p class="proj-result">AUROC 0.688 [0.675, 0.703]; at a 0.15 threshold it flags 24% of discharges and catches 47% of readmissions.</p>
           <div class="proj-tags">
-            <span class="proj-tag">Text-to-SQL</span>
-            <span class="proj-tag">RAG</span>
-            <span class="proj-tag">Databricks</span>
-            <span class="proj-tag">LLM-as-judge</span>
-            <span class="proj-tag">sqlglot</span>
+            <span class="proj-tag">XGBoost</span>
+            <span class="proj-tag">Calibration</span>
+            <span class="proj-tag">Decision curves</span>
+            <span class="proj-tag">Fairness audit</span>
+            <span class="proj-tag">Model card</span>
           </div>
         </div>
         <div class="proj-meta">
-          <span class="meta-k">type</span><span class="meta-v">GenAI · Analytics</span>
-          <span class="meta-k">stack</span><span class="meta-v">Python · DuckDB · Databricks SQL</span>
-          <span class="meta-k">repo</span><span class="meta-v"><a href="https://github.com/rkesseku/analytics-copilot" target="_blank" rel="noopener" style="color:var(--accent-2);text-decoration:none;">↗ GitHub</a></span>
-          <span class="meta-k">brief</span><span class="meta-v"><a href="https://github.com/rkesseku/analytics-copilot/blob/main/docs/brief/brief.pdf" target="_blank" rel="noopener" style="color:var(--accent-2);text-decoration:none;">📄 Summary PDF</a></span>
+          <span class="meta-k">type</span><span class="meta-v">Healthcare ML · Responsible AI</span>
+          <span class="meta-k">stack</span><span class="meta-v">Python · XGBoost · scikit-learn</span>
+          <span class="meta-k">repo</span><span class="meta-v"><a href="https://github.com/rkesseku/readmission-risk-audit" target="_blank" rel="noopener" style="color:var(--accent-2);text-decoration:none;">↗ GitHub</a></span>
+          <span class="meta-k">brief</span><span class="meta-v"><a href="https://github.com/rkesseku/readmission-risk-audit/blob/main/docs/brief/brief.pdf" target="_blank" rel="noopener" style="color:var(--accent-2);text-decoration:none;">📄 Summary PDF</a></span>
         </div>
       </div>
       <div class="proj">
         <div class="proj-num">/03</div>
+        <div class="proj-body">
+          <h3><a href="https://github.com/rkesseku/clinical-evidence-retrieval" target="_blank" rel="noopener" style="color:inherit;text-decoration:none;">Clinical Evidence Retrieval <em>— Hybrid Search for RAG</em></a></h3>
+          <p>Retrieval layer for medical question answering on BEIR NFCorpus: BM25, dense embeddings (bge-small) and reciprocal-rank fusion, with an optional cross-encoder re-ranker, paired-bootstrap significance tests, latency measurement and a FastAPI <code>/search</code> service.</p>
+          <p class="proj-result">Hybrid search lifts nDCG@10 from 0.322 (BM25) to 0.365, +0.043 [+0.030, +0.056].</p>
+          <div class="proj-tags">
+            <span class="proj-tag">RAG retrieval</span>
+            <span class="proj-tag">BM25</span>
+            <span class="proj-tag">Dense embeddings</span>
+            <span class="proj-tag">RRF</span>
+            <span class="proj-tag">FastAPI</span>
+          </div>
+        </div>
+        <div class="proj-meta">
+          <span class="meta-k">type</span><span class="meta-v">Search · GenAI</span>
+          <span class="meta-k">stack</span><span class="meta-v">Python · sentence-transformers</span>
+          <span class="meta-k">repo</span><span class="meta-v"><a href="https://github.com/rkesseku/clinical-evidence-retrieval" target="_blank" rel="noopener" style="color:var(--accent-2);text-decoration:none;">↗ GitHub</a></span>
+          <span class="meta-k">brief</span><span class="meta-v"><a href="https://github.com/rkesseku/clinical-evidence-retrieval/blob/main/docs/brief/brief.pdf" target="_blank" rel="noopener" style="color:var(--accent-2);text-decoration:none;">📄 Summary PDF</a></span>
+        </div>
+      </div>
+      <div class="proj">
+        <div class="proj-num">/04</div>
         <div class="proj-body">
           <h3><a href="https://github.com/rkesseku/experimentation-platform" target="_blank" rel="noopener" style="color:inherit;text-decoration:none;">Online Experimentation Platform <em>— A/B Testing Done Right</em></a></h3>
           <p>Library, FastAPI service and Streamlit dashboard for A/B tests: power and sample-size design, hash-based assignment with SRM checks, CUPED/CUPAC variance reduction, delta-method ratio metrics, and anytime-valid sequential monitoring. In simulation, naive peeking inflates false positives to 32%; mSPRT holds them at 1.7%.</p>
@@ -1027,28 +1048,49 @@ html:not(.js) .reveal { opacity: 1; transform: none; }
         </div>
       </div>
       <div class="proj">
-        <div class="proj-num">/04</div>
+        <div class="proj-num">/05</div>
         <div class="proj-body">
-          <h3><a href="https://github.com/rkesseku/demand-forecasting-uplift" target="_blank" rel="noopener" style="color:inherit;text-decoration:none;">Demand Forecasting &amp; Causal Uplift Engine <em>— Prophet + EconML</em></a></h3>
-          <p>Rolling-origin backtest of Prophet, statsforecast (AutoARIMA/AutoETS) and XGBoost demand forecasters, plus causal estimates of promotion lift with EconML (DML, doubly robust, causal forest) and DoWhy refutation. On synthetic data with known ground truth, naive comparison overstates lift by ~137% while adjusted estimators land within 4–8%.</p>
-          <p class="proj-result">Naive comparison overstates promo lift by ~137%; adjusted estimators land within 4–8%.</p>
+          <h3><a href="https://github.com/rkesseku/analytics-copilot" target="_blank" rel="noopener" style="color:inherit;text-decoration:none;">Conversational Analytics Copilot <em>— Text-to-SQL + RAG</em></a></h3>
+          <p>Natural-language assistant that retrieves relevant schema, turns business questions into validated, read-only SQL (DuckDB locally, Databricks SQL Warehouse via an adapter), and returns charts plus written commentary. Regression-tested on a held-out bank of 25 questions, scored by execution accuracy and an LLM judge, with a CI gate.</p>
+          <p class="proj-result">25-question regression bank with gold SQL; 7 of 7 unsafe queries blocked by the validator.</p>
           <div class="proj-tags">
-            <span class="proj-tag">Prophet</span>
-            <span class="proj-tag">statsforecast</span>
-            <span class="proj-tag">EconML</span>
-            <span class="proj-tag">DoWhy</span>
-            <span class="proj-tag">XGBoost</span>
+            <span class="proj-tag">Text-to-SQL</span>
+            <span class="proj-tag">RAG</span>
+            <span class="proj-tag">Databricks</span>
+            <span class="proj-tag">LLM-as-judge</span>
+            <span class="proj-tag">sqlglot</span>
           </div>
         </div>
         <div class="proj-meta">
-          <span class="meta-k">type</span><span class="meta-v">Forecasting · Causal</span>
-          <span class="meta-k">stack</span><span class="meta-v">Python · Stats</span>
-          <span class="meta-k">repo</span><span class="meta-v"><a href="https://github.com/rkesseku/demand-forecasting-uplift" target="_blank" rel="noopener" style="color:var(--accent-2);text-decoration:none;">↗ GitHub</a></span>
-          <span class="meta-k">brief</span><span class="meta-v"><a href="https://github.com/rkesseku/demand-forecasting-uplift/blob/main/docs/brief/brief.pdf" target="_blank" rel="noopener" style="color:var(--accent-2);text-decoration:none;">📄 Summary PDF</a></span>
+          <span class="meta-k">type</span><span class="meta-v">GenAI · Analytics</span>
+          <span class="meta-k">stack</span><span class="meta-v">Python · DuckDB · Databricks SQL</span>
+          <span class="meta-k">repo</span><span class="meta-v"><a href="https://github.com/rkesseku/analytics-copilot" target="_blank" rel="noopener" style="color:var(--accent-2);text-decoration:none;">↗ GitHub</a></span>
+          <span class="meta-k">brief</span><span class="meta-v"><a href="https://github.com/rkesseku/analytics-copilot/blob/main/docs/brief/brief.pdf" target="_blank" rel="noopener" style="color:var(--accent-2);text-decoration:none;">📄 Summary PDF</a></span>
         </div>
       </div>
       <div class="proj">
-        <div class="proj-num">/05</div>
+        <div class="proj-num">/06</div>
+        <div class="proj-body">
+          <h3><a href="https://github.com/rkesseku/sequential-recsys" target="_blank" rel="noopener" style="color:inherit;text-decoration:none;">Sequential Recommender <em>— SASRec + Learning-to-Rank</em></a></h3>
+          <p>Next-item recommendation on MovieLens-1M with a leakage-free temporal split, scored against the full 3,706-film catalogue rather than sampled negatives. A from-scratch PyTorch SASRec beats Popularity, ItemKNN and EASE baselines, stable across three seeds, and a LightGBM LambdaRank re-ranker adds a further significant gain on top.</p>
+          <p class="proj-result">NDCG@10 0.172 vs 0.053 for the best classical model (EASE); re-ranker +0.0066 [+0.0027, +0.0104] over SASRec.</p>
+          <div class="proj-tags">
+            <span class="proj-tag">Transformers</span>
+            <span class="proj-tag">SASRec</span>
+            <span class="proj-tag">LambdaRank</span>
+            <span class="proj-tag">LightGBM</span>
+            <span class="proj-tag">Recommender systems</span>
+          </div>
+        </div>
+        <div class="proj-meta">
+          <span class="meta-k">type</span><span class="meta-v">Recommender Systems</span>
+          <span class="meta-k">stack</span><span class="meta-v">PyTorch · LightGBM</span>
+          <span class="meta-k">repo</span><span class="meta-v"><a href="https://github.com/rkesseku/sequential-recsys" target="_blank" rel="noopener" style="color:var(--accent-2);text-decoration:none;">↗ GitHub</a></span>
+          <span class="meta-k">brief</span><span class="meta-v"><a href="https://github.com/rkesseku/sequential-recsys/blob/main/docs/brief/brief.pdf" target="_blank" rel="noopener" style="color:var(--accent-2);text-decoration:none;">📄 Summary PDF</a></span>
+        </div>
+      </div>
+      <div class="proj">
+        <div class="proj-num">/07</div>
         <div class="proj-body">
           <h3><a href="https://github.com/rkesseku/mlops-churn" target="_blank" rel="noopener" style="color:inherit;text-decoration:none;">End-to-End MLOps Platform <em>— Churn + Drift-Triggered Retraining</em></a></h3>
           <p>Spark feature engineering, XGBoost tuned with Optuna, MLflow tracking and registry, FastAPI serving in Docker, Kubernetes manifests (kustomize, HPA, CronJob), and Prometheus / Grafana monitoring. A scheduled job checks drift (PSI/KS), retrains, and promotes the new model only if it beats the champion on a shared holdout.</p>
@@ -1069,7 +1111,49 @@ html:not(.js) .reveal { opacity: 1; transform: none; }
         </div>
       </div>
       <div class="proj">
-        <div class="proj-num">/06</div>
+        <div class="proj-num">/08</div>
+        <div class="proj-body">
+          <h3><a href="https://github.com/rkesseku/demand-forecasting-uplift" target="_blank" rel="noopener" style="color:inherit;text-decoration:none;">Demand Forecasting &amp; Causal Uplift Engine <em>— Prophet + EconML</em></a></h3>
+          <p>Rolling-origin backtest of Prophet, statsforecast (AutoARIMA/AutoETS) and XGBoost demand forecasters, plus causal estimates of promotion lift with EconML (DML, doubly robust, causal forest) and DoWhy refutation. On synthetic data with known ground truth, naive comparison overstates lift by ~137% while adjusted estimators land within 4–8%.</p>
+          <p class="proj-result">Naive comparison overstates promo lift by ~137%; adjusted estimators land within 4–8%.</p>
+          <div class="proj-tags">
+            <span class="proj-tag">Prophet</span>
+            <span class="proj-tag">statsforecast</span>
+            <span class="proj-tag">EconML</span>
+            <span class="proj-tag">DoWhy</span>
+            <span class="proj-tag">XGBoost</span>
+          </div>
+        </div>
+        <div class="proj-meta">
+          <span class="meta-k">type</span><span class="meta-v">Forecasting · Causal</span>
+          <span class="meta-k">stack</span><span class="meta-v">Python · Stats</span>
+          <span class="meta-k">repo</span><span class="meta-v"><a href="https://github.com/rkesseku/demand-forecasting-uplift" target="_blank" rel="noopener" style="color:var(--accent-2);text-decoration:none;">↗ GitHub</a></span>
+          <span class="meta-k">brief</span><span class="meta-v"><a href="https://github.com/rkesseku/demand-forecasting-uplift/blob/main/docs/brief/brief.pdf" target="_blank" rel="noopener" style="color:var(--accent-2);text-decoration:none;">📄 Summary PDF</a></span>
+        </div>
+      </div>
+      <div class="proj">
+        <div class="proj-num">/09</div>
+        <div class="proj-body">
+          <h3><a href="https://github.com/rkesseku/turbofan-rul-conformal" target="_blank" rel="noopener" style="color:inherit;text-decoration:none;">Predictive Maintenance <em>— RUL with Conformal Intervals</em></a></h3>
+          <p>Predicts remaining useful life of turbofan engines on NASA C-MAPSS (FD001–FD004) with gradient boosting, a 1D-CNN, an LSTM and a Weibull survival baseline, wraps predictions in split-conformal and CQR intervals, and turns them into a cost-based maintenance policy.</p>
+          <p class="proj-result">Acting at the point estimate fails 38–57% of engines; acting at the conformal lower bound cuts that to 3–8% and cost by 2.6–4.5×.</p>
+          <div class="proj-tags">
+            <span class="proj-tag">Conformal prediction</span>
+            <span class="proj-tag">LightGBM</span>
+            <span class="proj-tag">Survival analysis</span>
+            <span class="proj-tag">Uncertainty</span>
+            <span class="proj-tag">Decision policy</span>
+          </div>
+        </div>
+        <div class="proj-meta">
+          <span class="meta-k">type</span><span class="meta-v">Predictive Maintenance</span>
+          <span class="meta-k">stack</span><span class="meta-v">Python · LightGBM · PyTorch</span>
+          <span class="meta-k">repo</span><span class="meta-v"><a href="https://github.com/rkesseku/turbofan-rul-conformal" target="_blank" rel="noopener" style="color:var(--accent-2);text-decoration:none;">↗ GitHub</a></span>
+          <span class="meta-k">brief</span><span class="meta-v"><a href="https://github.com/rkesseku/turbofan-rul-conformal/blob/main/docs/brief/brief.pdf" target="_blank" rel="noopener" style="color:var(--accent-2);text-decoration:none;">📄 Summary PDF</a></span>
+        </div>
+      </div>
+      <div class="proj">
+        <div class="proj-num">/10</div>
         <div class="proj-body">
           <h3><a href="https://github.com/rkesseku/llm-eval-harness" target="_blank" rel="noopener" style="color:inherit;text-decoration:none;">LLM Evaluation &amp; Guardrails <em>— Reusable Harness</em></a></h3>
           <p>Evaluation framework for LLM apps: LLM-as-judge correctness, groundedness against retrieved context, and deterministic safety checks (PII with Luhn/SSN validation, refusal patterns, prompt-injection signals). A CLI gate fails CI on latency, cost or pass-rate regressions against a stored baseline and writes a Markdown report.</p>
@@ -1090,7 +1174,28 @@ html:not(.js) .reveal { opacity: 1; transform: none; }
         </div>
       </div>
       <div class="proj">
-        <div class="proj-num">/07</div>
+        <div class="proj-num">/11</div>
+        <div class="proj-body">
+          <h3><a href="https://github.com/rkesseku/graph-fraud-drift" target="_blank" rel="noopener" style="color:inherit;text-decoration:none;">Graph Fraud Detection <em>— Under Concept Drift</em></a></h3>
+          <p>Illicit-transaction detection on the real Elliptic Bitcoin graph with a strict temporal split: XGBoost with engineered graph features against GraphSAGE and GAT built in plain PyTorch, cost-sensitive alert thresholds and a time-block bootstrap. Documents how every model collapses after a real dark-market shutdown.</p>
+          <p class="proj-result">XGBoost illicit F1 0.816, ahead of both GNNs; F1 drops to 0.02–0.03 for all models after the regime change.</p>
+          <div class="proj-tags">
+            <span class="proj-tag">Graph ML</span>
+            <span class="proj-tag">GNNs</span>
+            <span class="proj-tag">XGBoost</span>
+            <span class="proj-tag">Concept drift</span>
+            <span class="proj-tag">Fraud</span>
+          </div>
+        </div>
+        <div class="proj-meta">
+          <span class="meta-k">type</span><span class="meta-v">Graph ML · Fraud</span>
+          <span class="meta-k">stack</span><span class="meta-v">PyTorch · XGBoost</span>
+          <span class="meta-k">repo</span><span class="meta-v"><a href="https://github.com/rkesseku/graph-fraud-drift" target="_blank" rel="noopener" style="color:var(--accent-2);text-decoration:none;">↗ GitHub</a></span>
+          <span class="meta-k">brief</span><span class="meta-v"><a href="https://github.com/rkesseku/graph-fraud-drift/blob/main/docs/brief/brief.pdf" target="_blank" rel="noopener" style="color:var(--accent-2);text-decoration:none;">📄 Summary PDF</a></span>
+        </div>
+      </div>
+      <div class="proj">
+        <div class="proj-num">/12</div>
         <div class="proj-body">
           <h3>Multi-Agent Research &amp; Reporting System <em>— MCP</em></h3>
           <p>Autonomous agentic AI workflow on LangGraph and Model Context Protocol. Decomposes a research question, orchestrates specialized agents over external tools, and produces a cited executive brief with retry / fallback logic and a token-cost guardrail.</p>
