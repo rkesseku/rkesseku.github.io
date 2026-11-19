@@ -791,21 +791,25 @@ footer .signature {
 }
 
 /* ───────────────────── READABILITY OVERRIDES ───────────────────── */
-:root { --label-red: #EF4444; }
+:root { --label-red: var(--accent); }  /* labels share the brand accent */
 .sec-num {
-  font-size: 15px;
+  font-size: 17px;
   font-weight: 600;
-  letter-spacing: 0.16em;
-  color: var(--label-red);
-  margin-bottom: 20px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 22px;
 }
-.sec-num::before { width: 40px; height: 2px; background: var(--label-red); }
+.sec-num::before { width: 48px; height: 2px; background: var(--accent); }
+.sec-title { font-size: clamp(36px, 5vw, 60px); }
+.xp ul { max-width: 680px; }
+.xp li { font-size: 15.5px; }
 .nav-links { font-size: 14px; gap: 32px; }
 .nav-logo { font-size: 16px; }
 .hero-tag { font-size: 13px; }
 .chip { font-size: 13px; }
 .btn { font-size: 14px; }
-.proj-num { font-size: 15px; color: var(--label-red); }
+.proj-num { font-size: 15px; color: var(--accent); }
 .proj-body p { font-size: 17px; max-width: 640px; }
 .proj-tag { font-size: 12.5px; }
 .proj-meta { font-size: 13px; }
@@ -891,9 +895,8 @@ html:not(.js) .reveal { opacity: 1; transform: none; }
   <div class="shell">
     <div class="hero-tag">Available for Sr. Data Science &amp; ML/AI Engineering Roles</div>
     <h1>
-      Turning <span class="italic">data</span> into<br>
-      decisions, and <span class="italic">models</span><br>
-      into production.
+      Turning <span class="italic">data</span> into decisions<br>
+      and <span class="italic">models</span> into production.
     </h1>
     <p class="hero-sub">
       <strong>Senior Data Scientist &amp; ML/AI Engineer</strong> with 9+ years building enterprise analytics, predictive models, and generative AI systems — from Tableau dashboards consumed by 100+ stakeholders to MLOps platforms, RAG pipelines, and MCP-based multi-agent workflows. Statistical rigor, engineering discipline, business impact.
@@ -1220,7 +1223,7 @@ html:not(.js) .reveal { opacity: 1; transform: none; }
 <section id="experience">
   <div class="shell">
     <div class="sec-num">03 — Experience</div>
-    <h2 class="sec-title">A decade of shipping in <em>regulated domains</em>.</h2>
+    <h2 class="sec-title">A decade of turning messy data into <em>models and decisions people trust</em>.</h2>
 
     <div class="xp">
       <div class="xp-when">
@@ -1252,6 +1255,8 @@ html:not(.js) .reveal { opacity: 1; transform: none; }
         <ul>
           <li>Engineered privacy-preserving ML for sensitive healthcare data: differentially private GANs for synthetic data, privacy-preserving training on PHI, federated approaches across institutions.</li>
           <li>Built reusable validation frameworks quantifying the tradeoff between model utility, privacy risk, and deployment readiness — defensible go/no-go basis for engineering teams.</li>
+          <li>Translated research prototypes into production-ready ML solutions in collaboration with engineering teams.</li>
+          <li>Presented technical findings to stakeholders, influencing system design and implementation decisions.</li>
         </ul>
       </div>
     </div>
@@ -1267,6 +1272,7 @@ html:not(.js) .reveal { opacity: 1; transform: none; }
         <ul>
           <li>Built predictive ML pipelines for patient risk and 30-day readmission in a regulated healthcare environment using survival analysis and imbalanced-learning techniques.</li>
           <li>Constructed analytic datasets from disparate healthcare sources using SQL and Python; partnered with clinicians to align models with operational and regulatory requirements.</li>
+          <li>Contributed to architecture decisions for secure, large-scale healthcare data platforms.</li>
         </ul>
       </div>
     </div>
@@ -1282,6 +1288,7 @@ html:not(.js) .reveal { opacity: 1; transform: none; }
         <ul>
           <li>Led analytical and modeling projects on cancer treatment outcomes, identifying key drivers of treatment effectiveness.</li>
           <li>Translated business requirements from non-technical stakeholders into reproducible dashboards and LaTeX reports.</li>
+          <li>Mentored junior analysts and delivered insights to stakeholders through dashboards and reports.</li>
         </ul>
       </div>
     </div>
@@ -1297,6 +1304,8 @@ html:not(.js) .reveal { opacity: 1; transform: none; }
         <ul>
           <li>Analyzed 1,500+ case records to identify disease patterns; built forecasting models to anticipate outbreaks and improve resource planning.</li>
           <li>Conducted causal inference on 10,000+ records, contributing to a 15% improvement in treatment outcomes.</li>
+          <li>Automated data pipelines, reducing manual effort by 30% and improving data quality.</li>
+          <li>Developed dashboards and optimized SQL workflows, improving operational efficiency by 25%.</li>
         </ul>
       </div>
     </div>
@@ -1460,7 +1469,7 @@ const observer = new IntersectionObserver((entries) => {
   entries.forEach(e => {
     if (e.isIntersecting) e.target.classList.add('visible');
   });
-}, { threshold: 0.1 });
+}, { threshold: 0, rootMargin: "0px 0px -60px 0px" });  // any part in view: tall sections must still reveal on phones
 
 document.querySelectorAll('section').forEach(el => {
   el.classList.add('reveal');
