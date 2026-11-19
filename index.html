@@ -966,6 +966,27 @@ html:not(.js) .reveal { opacity: 1; transform: none; }
       <div class="proj">
         <div class="proj-num">/01</div>
         <div class="proj-body">
+          <h3><a href="https://github.com/rkesseku/clinical-lora-extractor" target="_blank" rel="noopener" style="color:inherit;text-decoration:none;">Biomedical Entity Extractor <em>— LoRA vs. Prompting</em></a></h3>
+          <p>Fine-tunes Qwen2.5-1.5B with LoRA on a Colab GPU to extract chemicals and diseases from biomedical text (BC5CDR) as validated JSON, and compares it with few-shot prompting on strict / relaxed F1 with bootstrap CIs, latency and cost. Served through FastAPI with schema validation and JSON repair.</p>
+          <p class="proj-result">Strict F1 0.46 → 0.82 vs few-shot prompting; paired-bootstrap CI [+0.31, +0.42].</p>
+          <div class="proj-tags">
+            <span class="proj-tag">LoRA / PEFT</span>
+            <span class="proj-tag">Transformers</span>
+            <span class="proj-tag">Biomedical NLP</span>
+            <span class="proj-tag">LLM evaluation</span>
+            <span class="proj-tag">FastAPI</span>
+          </div>
+        </div>
+        <div class="proj-meta">
+          <span class="meta-k">type</span><span class="meta-v">Fine-tuning · NLP</span>
+          <span class="meta-k">stack</span><span class="meta-v">PyTorch · PEFT</span>
+          <span class="meta-k">repo</span><span class="meta-v"><a href="https://github.com/rkesseku/clinical-lora-extractor" target="_blank" rel="noopener" style="color:var(--accent-2);text-decoration:none;">↗ GitHub</a></span>
+          <span class="meta-k">brief</span><span class="meta-v"><a href="https://github.com/rkesseku/clinical-lora-extractor/blob/main/docs/brief/brief.pdf" target="_blank" rel="noopener" style="color:var(--accent-2);text-decoration:none;">📄 Summary PDF</a></span>
+        </div>
+      </div>
+      <div class="proj">
+        <div class="proj-num">/02</div>
+        <div class="proj-body">
           <h3><a href="https://github.com/rkesseku/analytics-copilot" target="_blank" rel="noopener" style="color:inherit;text-decoration:none;">Conversational Analytics Copilot <em>— Text-to-SQL + RAG</em></a></h3>
           <p>Natural-language assistant that retrieves relevant schema, turns business questions into validated, read-only SQL (DuckDB locally, Databricks SQL Warehouse via an adapter), and returns charts plus written commentary. Regression-tested on a held-out bank of 25 questions, scored by execution accuracy and an LLM judge, with a CI gate.</p>
           <p class="proj-result">25-question regression bank with gold SQL; 7 of 7 unsafe queries blocked by the validator.</p>
@@ -985,45 +1006,24 @@ html:not(.js) .reveal { opacity: 1; transform: none; }
         </div>
       </div>
       <div class="proj">
-        <div class="proj-num">/02</div>
-        <div class="proj-body">
-          <h3><a href="https://github.com/rkesseku/llm-eval-harness" target="_blank" rel="noopener" style="color:inherit;text-decoration:none;">LLM Evaluation &amp; Guardrails <em>— Reusable Harness</em></a></h3>
-          <p>Evaluation framework for LLM apps: LLM-as-judge correctness, groundedness against retrieved context, and deterministic safety checks (PII with Luhn/SSN validation, refusal patterns, prompt-injection signals). A CLI gate fails CI on latency, cost or pass-rate regressions against a stored baseline and writes a Markdown report.</p>
-          <p class="proj-result">CI gate catches injected latency, cost and PII-leak regressions and fails the build.</p>
-          <div class="proj-tags">
-            <span class="proj-tag">Evals</span>
-            <span class="proj-tag">Guardrails</span>
-            <span class="proj-tag">PII detection</span>
-            <span class="proj-tag">CI/CD</span>
-            <span class="proj-tag">Pydantic</span>
-          </div>
-        </div>
-        <div class="proj-meta">
-          <span class="meta-k">type</span><span class="meta-v">LLM Infra</span>
-          <span class="meta-k">stack</span><span class="meta-v">Python · GitHub Actions</span>
-          <span class="meta-k">repo</span><span class="meta-v"><a href="https://github.com/rkesseku/llm-eval-harness" target="_blank" rel="noopener" style="color:var(--accent-2);text-decoration:none;">↗ GitHub</a></span>
-          <span class="meta-k">brief</span><span class="meta-v"><a href="https://github.com/rkesseku/llm-eval-harness/blob/main/docs/brief/brief.pdf" target="_blank" rel="noopener" style="color:var(--accent-2);text-decoration:none;">📄 Summary PDF</a></span>
-        </div>
-      </div>
-      <div class="proj">
         <div class="proj-num">/03</div>
         <div class="proj-body">
-          <h3><a href="https://github.com/rkesseku/mlops-churn" target="_blank" rel="noopener" style="color:inherit;text-decoration:none;">End-to-End MLOps Platform <em>— Churn + Drift-Triggered Retraining</em></a></h3>
-          <p>Spark feature engineering, XGBoost tuned with Optuna, MLflow tracking and registry, FastAPI serving in Docker, Kubernetes manifests (kustomize, HPA, CronJob), and Prometheus / Grafana monitoring. A scheduled job checks drift (PSI/KS), retrains, and promotes the new model only if it beats the champion on a shared holdout.</p>
-          <p class="proj-result">Retrained models are promoted only when they beat the champion on a shared holdout.</p>
+          <h3><a href="https://github.com/rkesseku/experimentation-platform" target="_blank" rel="noopener" style="color:inherit;text-decoration:none;">Online Experimentation Platform <em>— A/B Testing Done Right</em></a></h3>
+          <p>Library, FastAPI service and Streamlit dashboard for A/B tests: power and sample-size design, hash-based assignment with SRM checks, CUPED/CUPAC variance reduction, delta-method ratio metrics, and anytime-valid sequential monitoring. In simulation, naive peeking inflates false positives to 32%; mSPRT holds them at 1.7%.</p>
+          <p class="proj-result">Naive peeking inflates false positives to 32%; mSPRT holds them at 1.7%.</p>
           <div class="proj-tags">
-            <span class="proj-tag">MLflow</span>
-            <span class="proj-tag">Spark</span>
-            <span class="proj-tag">XGBoost</span>
-            <span class="proj-tag">Kubernetes</span>
-            <span class="proj-tag">Drift monitoring</span>
+            <span class="proj-tag">A/B testing</span>
+            <span class="proj-tag">CUPED</span>
+            <span class="proj-tag">Sequential testing</span>
+            <span class="proj-tag">SRM</span>
+            <span class="proj-tag">FastAPI</span>
           </div>
         </div>
         <div class="proj-meta">
-          <span class="meta-k">type</span><span class="meta-v">MLOps Platform</span>
-          <span class="meta-k">stack</span><span class="meta-v">PySpark · MLflow · K8s</span>
-          <span class="meta-k">repo</span><span class="meta-v"><a href="https://github.com/rkesseku/mlops-churn" target="_blank" rel="noopener" style="color:var(--accent-2);text-decoration:none;">↗ GitHub</a></span>
-          <span class="meta-k">brief</span><span class="meta-v"><a href="https://github.com/rkesseku/mlops-churn/blob/main/docs/brief/brief.pdf" target="_blank" rel="noopener" style="color:var(--accent-2);text-decoration:none;">📄 Summary PDF</a></span>
+          <span class="meta-k">type</span><span class="meta-v">Experimentation · Stats</span>
+          <span class="meta-k">stack</span><span class="meta-v">Python · SciPy · Streamlit</span>
+          <span class="meta-k">repo</span><span class="meta-v"><a href="https://github.com/rkesseku/experimentation-platform" target="_blank" rel="noopener" style="color:var(--accent-2);text-decoration:none;">↗ GitHub</a></span>
+          <span class="meta-k">brief</span><span class="meta-v"><a href="https://github.com/rkesseku/experimentation-platform/blob/main/docs/brief/brief.pdf" target="_blank" rel="noopener" style="color:var(--accent-2);text-decoration:none;">📄 Summary PDF</a></span>
         </div>
       </div>
       <div class="proj">
@@ -1050,43 +1050,43 @@ html:not(.js) .reveal { opacity: 1; transform: none; }
       <div class="proj">
         <div class="proj-num">/05</div>
         <div class="proj-body">
-          <h3><a href="https://github.com/rkesseku/experimentation-platform" target="_blank" rel="noopener" style="color:inherit;text-decoration:none;">Online Experimentation Platform <em>— A/B Testing Done Right</em></a></h3>
-          <p>Library, FastAPI service and Streamlit dashboard for A/B tests: power and sample-size design, hash-based assignment with SRM checks, CUPED/CUPAC variance reduction, delta-method ratio metrics, and anytime-valid sequential monitoring. In simulation, naive peeking inflates false positives to 32%; mSPRT holds them at 1.7%.</p>
-          <p class="proj-result">Naive peeking inflates false positives to 32%; mSPRT holds them at 1.7%.</p>
+          <h3><a href="https://github.com/rkesseku/mlops-churn" target="_blank" rel="noopener" style="color:inherit;text-decoration:none;">End-to-End MLOps Platform <em>— Churn + Drift-Triggered Retraining</em></a></h3>
+          <p>Spark feature engineering, XGBoost tuned with Optuna, MLflow tracking and registry, FastAPI serving in Docker, Kubernetes manifests (kustomize, HPA, CronJob), and Prometheus / Grafana monitoring. A scheduled job checks drift (PSI/KS), retrains, and promotes the new model only if it beats the champion on a shared holdout.</p>
+          <p class="proj-result">Retrained models are promoted only when they beat the champion on a shared holdout.</p>
           <div class="proj-tags">
-            <span class="proj-tag">A/B testing</span>
-            <span class="proj-tag">CUPED</span>
-            <span class="proj-tag">Sequential testing</span>
-            <span class="proj-tag">SRM</span>
-            <span class="proj-tag">FastAPI</span>
+            <span class="proj-tag">MLflow</span>
+            <span class="proj-tag">Spark</span>
+            <span class="proj-tag">XGBoost</span>
+            <span class="proj-tag">Kubernetes</span>
+            <span class="proj-tag">Drift monitoring</span>
           </div>
         </div>
         <div class="proj-meta">
-          <span class="meta-k">type</span><span class="meta-v">Experimentation · Stats</span>
-          <span class="meta-k">stack</span><span class="meta-v">Python · SciPy · Streamlit</span>
-          <span class="meta-k">repo</span><span class="meta-v"><a href="https://github.com/rkesseku/experimentation-platform" target="_blank" rel="noopener" style="color:var(--accent-2);text-decoration:none;">↗ GitHub</a></span>
-          <span class="meta-k">brief</span><span class="meta-v"><a href="https://github.com/rkesseku/experimentation-platform/blob/main/docs/brief/brief.pdf" target="_blank" rel="noopener" style="color:var(--accent-2);text-decoration:none;">📄 Summary PDF</a></span>
+          <span class="meta-k">type</span><span class="meta-v">MLOps Platform</span>
+          <span class="meta-k">stack</span><span class="meta-v">PySpark · MLflow · K8s</span>
+          <span class="meta-k">repo</span><span class="meta-v"><a href="https://github.com/rkesseku/mlops-churn" target="_blank" rel="noopener" style="color:var(--accent-2);text-decoration:none;">↗ GitHub</a></span>
+          <span class="meta-k">brief</span><span class="meta-v"><a href="https://github.com/rkesseku/mlops-churn/blob/main/docs/brief/brief.pdf" target="_blank" rel="noopener" style="color:var(--accent-2);text-decoration:none;">📄 Summary PDF</a></span>
         </div>
       </div>
       <div class="proj">
         <div class="proj-num">/06</div>
         <div class="proj-body">
-          <h3><a href="https://github.com/rkesseku/clinical-lora-extractor" target="_blank" rel="noopener" style="color:inherit;text-decoration:none;">Biomedical Entity Extractor <em>— LoRA vs. Prompting</em></a></h3>
-          <p>Fine-tunes Qwen2.5-1.5B with LoRA on a Colab GPU to extract chemicals and diseases from biomedical text (BC5CDR) as validated JSON, and compares it with few-shot prompting on strict / relaxed F1 with bootstrap CIs, latency and cost. Served through FastAPI with schema validation and JSON repair.</p>
-          <p class="proj-result">Strict F1 0.46 → 0.82 vs few-shot prompting; paired-bootstrap CI [+0.31, +0.42].</p>
+          <h3><a href="https://github.com/rkesseku/llm-eval-harness" target="_blank" rel="noopener" style="color:inherit;text-decoration:none;">LLM Evaluation &amp; Guardrails <em>— Reusable Harness</em></a></h3>
+          <p>Evaluation framework for LLM apps: LLM-as-judge correctness, groundedness against retrieved context, and deterministic safety checks (PII with Luhn/SSN validation, refusal patterns, prompt-injection signals). A CLI gate fails CI on latency, cost or pass-rate regressions against a stored baseline and writes a Markdown report.</p>
+          <p class="proj-result">CI gate catches injected latency, cost and PII-leak regressions and fails the build.</p>
           <div class="proj-tags">
-            <span class="proj-tag">LoRA / PEFT</span>
-            <span class="proj-tag">Transformers</span>
-            <span class="proj-tag">Biomedical NLP</span>
-            <span class="proj-tag">LLM evaluation</span>
-            <span class="proj-tag">FastAPI</span>
+            <span class="proj-tag">Evals</span>
+            <span class="proj-tag">Guardrails</span>
+            <span class="proj-tag">PII detection</span>
+            <span class="proj-tag">CI/CD</span>
+            <span class="proj-tag">Pydantic</span>
           </div>
         </div>
         <div class="proj-meta">
-          <span class="meta-k">type</span><span class="meta-v">Fine-tuning · NLP</span>
-          <span class="meta-k">stack</span><span class="meta-v">PyTorch · PEFT</span>
-          <span class="meta-k">repo</span><span class="meta-v"><a href="https://github.com/rkesseku/clinical-lora-extractor" target="_blank" rel="noopener" style="color:var(--accent-2);text-decoration:none;">↗ GitHub</a></span>
-          <span class="meta-k">brief</span><span class="meta-v"><a href="https://github.com/rkesseku/clinical-lora-extractor/blob/main/docs/brief/brief.pdf" target="_blank" rel="noopener" style="color:var(--accent-2);text-decoration:none;">📄 Summary PDF</a></span>
+          <span class="meta-k">type</span><span class="meta-v">LLM Infra</span>
+          <span class="meta-k">stack</span><span class="meta-v">Python · GitHub Actions</span>
+          <span class="meta-k">repo</span><span class="meta-v"><a href="https://github.com/rkesseku/llm-eval-harness" target="_blank" rel="noopener" style="color:var(--accent-2);text-decoration:none;">↗ GitHub</a></span>
+          <span class="meta-k">brief</span><span class="meta-v"><a href="https://github.com/rkesseku/llm-eval-harness/blob/main/docs/brief/brief.pdf" target="_blank" rel="noopener" style="color:var(--accent-2);text-decoration:none;">📄 Summary PDF</a></span>
         </div>
       </div>
       <div class="proj">
