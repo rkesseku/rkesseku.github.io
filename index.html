@@ -992,7 +992,7 @@ html:not(.js) .reveal { opacity: 1; transform: none; }
         <div class="proj-body">
           <h3><a href="https://github.com/rkesseku/readmission-risk-audit" target="_blank" rel="noopener" style="color:inherit;text-decoration:none;">Hospital Readmission Risk <em>— Calibrated, Audited, Decision-Ready</em></a></h3>
           <p>Predicts 30-day readmission on 100k real diabetic inpatient encounters (UCI Diabetes 130) with patient-level splits and leakage-safe history features. Goes beyond AUROC: Venn-Abers and isotonic calibration, decision-curve net benefit, a subgroup fairness audit by age, sex and race with clustered-bootstrap CIs, and a model card.</p>
-          <p class="proj-result">AUROC 0.688 [0.675, 0.703]; at a 0.15 threshold it flags 24% of discharges and catches 47% of readmissions.</p>
+          <p class="proj-result">AUROC 0.688 [0.675, 0.703]; at a 0.15 threshold it flags 23% of discharges and catches 46% of readmissions.</p>
           <div class="proj-tags">
             <span class="proj-tag">XGBoost</span>
             <span class="proj-tag">Calibration</span>
@@ -1076,7 +1076,7 @@ html:not(.js) .reveal { opacity: 1; transform: none; }
         <div class="proj-body">
           <h3><a href="https://github.com/rkesseku/sequential-recsys" target="_blank" rel="noopener" style="color:inherit;text-decoration:none;">Sequential Recommender <em>— SASRec + Learning-to-Rank</em></a></h3>
           <p>Next-item recommendation on MovieLens-1M with a leakage-free temporal split, scored against the full 3,706-film catalogue rather than sampled negatives. A from-scratch PyTorch SASRec beats Popularity, ItemKNN and EASE baselines, stable across three seeds, and a LightGBM LambdaRank re-ranker adds a further significant gain on top.</p>
-          <p class="proj-result">NDCG@10 0.172 vs 0.053 for the best classical model (EASE); re-ranker +0.0066 [+0.0027, +0.0104] over SASRec.</p>
+          <p class="proj-result">NDCG@10 0.175 vs 0.053 for the best classical model (EASE); re-ranker +0.0085 [+0.0047, +0.0123] over SASRec.</p>
           <div class="proj-tags">
             <span class="proj-tag">Transformers</span>
             <span class="proj-tag">SASRec</span>
@@ -1139,7 +1139,7 @@ html:not(.js) .reveal { opacity: 1; transform: none; }
         <div class="proj-body">
           <h3><a href="https://github.com/rkesseku/turbofan-rul-conformal" target="_blank" rel="noopener" style="color:inherit;text-decoration:none;">Predictive Maintenance <em>— RUL with Conformal Intervals</em></a></h3>
           <p>Predicts remaining useful life of turbofan engines on NASA C-MAPSS (FD001–FD004) with gradient boosting, a 1D-CNN, an LSTM and a Weibull survival baseline, wraps predictions in split-conformal and CQR intervals, and turns them into a cost-based maintenance policy.</p>
-          <p class="proj-result">Acting at the point estimate fails 38–57% of engines; acting at the conformal lower bound cuts that to 3–8% and cost by 2.6–4.5×.</p>
+          <p class="proj-result">Acting at the point estimate fails 41–57% of engines; acting at a conformal lower bound cuts that to 4–9% and cost by 2.6–4.4×.</p>
           <div class="proj-tags">
             <span class="proj-tag">Conformal prediction</span>
             <span class="proj-tag">LightGBM</span>
@@ -1181,7 +1181,7 @@ html:not(.js) .reveal { opacity: 1; transform: none; }
         <div class="proj-body">
           <h3><a href="https://github.com/rkesseku/graph-fraud-drift" target="_blank" rel="noopener" style="color:inherit;text-decoration:none;">Graph Fraud Detection <em>— Under Concept Drift</em></a></h3>
           <p>Illicit-transaction detection on the real Elliptic Bitcoin graph with a strict temporal split: XGBoost with engineered graph features against GraphSAGE and GAT built in plain PyTorch, cost-sensitive alert thresholds and a time-block bootstrap. Documents how every model collapses after a real dark-market shutdown.</p>
-          <p class="proj-result">XGBoost illicit F1 0.816, ahead of both GNNs; F1 drops to 0.02–0.03 for all models after the regime change.</p>
+          <p class="proj-result">XGBoost illicit F1 0.817, ahead of both GNNs; F1 drops to 0.02–0.03 for all models after the regime change.</p>
           <div class="proj-tags">
             <span class="proj-tag">Graph ML</span>
             <span class="proj-tag">GNNs</span>
